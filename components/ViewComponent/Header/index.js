@@ -1,13 +1,16 @@
-import React from 'react';
-import LogoSection from "./sections/LogoSection";
-import NavSection from "./sections/NavSection";
+import React from 'react'
+import LogoSection from "./sections/LogoSection"
+import HeaderStyled from './views'
+import AddOfferButton from './components/Buttons/AddOfferButton'
+import NavBar from './components/NavBar'
 
 const Header = () => {
     return (
-        <div>
+        <HeaderStyled>
             <LogoSection/>
-            <NavSection/>
-        </div>
+            <NavBar/>
+            <AddOfferButton/>
+        </HeaderStyled>
     );
 };
 

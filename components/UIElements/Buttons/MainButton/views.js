@@ -4,20 +4,23 @@ import { colors, fonts } from '../../../../themes'
 
 const Button = styled("button")`
   width: ${({ width }) => (width ? width : "100%")};
-  padding: 13px 28px 11px;
-  background-color: ${({ bgColor }) => (bgColor ? bgColor : colors.yellow)};
+  height: 44px;
+  padding: 4px 13px;
+  margin-left: 30px;
+  // background-color: ${({ bgColor }) => (bgColor ? bgColor : "")};
+  background: linear-gradient(90deg, #FF7C30 0%, #FF9C47 100%);
   color: ${({ color }) => (color ? color : colors.black)};
-  font-family: ${fonts.normal};
+  font-family: ${fonts.bold};
   display: inline-block;
   vertical-align: top;
-  border-radius: 6px;
+  border-radius: 3px;
   text-align: center;
   outline: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  border: 2px solid transparent;
-  font-size: 16px;
-  line-height: normal;
+  border: none;
+  font-size: ${({ fontsize }) => (fontsize ? fontsize : "14px")};
+  line-height: 17px;
   text-transform: capitalize;
   overflow: hidden;
   text-overflow: ellipsis;

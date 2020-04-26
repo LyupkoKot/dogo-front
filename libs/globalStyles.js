@@ -1,8 +1,20 @@
-import { css, createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
 
 const GlobalStyle = createGlobalStyle`
-@font-face {
+  * {
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @font-face {
     font-family: 'Quicksand-Bold';
     src: url('/static/fonts/Quicksand/Quicksand-Bold.ttf');
   }
@@ -25,5 +37,7 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Quicksand-Medium';
     src: url('/static/fonts/Quicksand/Quicksand-Medium.ttf');
-  }`;
+  }
+`;
+
 export default GlobalStyle

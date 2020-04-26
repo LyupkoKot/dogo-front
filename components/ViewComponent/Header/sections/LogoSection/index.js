@@ -3,9 +3,7 @@ import MainLogo from "../../../../UIElements/Logos/MainLogo";
 
 const LogoSection = () => {
     return (
-        <div>
             <MainLogo/>
-        </div>
     );
 };
 

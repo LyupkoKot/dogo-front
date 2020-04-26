@@ -1,10 +1,9 @@
-import React from 'react';
+import React from 'react'
+import { Logo } from './views'
 
 const MainLogo = () => {
     return (
-        <div>
-            Logo
-        </div>
+        <Logo/>
     );
 };
 

@@ -1,13 +1,15 @@
 import React from 'react';
 import NavItem from "./NavItem";
+import { NavBarStyled } from './views'
 
 const NavBar = () => {
     return (
-        <div>
-            <NavItem title={"kernes"} to={"index"}/>
-            <NavItem title={"zelupa"} to={"index"}/>
-            <NavItem title={"pacxrasha"} to={"index"}/>
-        </div>
+        <NavBarStyled>
+            <NavItem title={"Glowna"} to={"index"}/>
+            <NavItem title={"O nas"} to={"index"}/>
+            <NavItem title={"Zakladki"} to={"index"}/>
+            <NavItem title={"Logowanie"} to={"index"}/>
+        </NavBarStyled>
     );
 };
 
