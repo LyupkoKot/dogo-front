@@ -1,9 +1,12 @@
 import React from 'react';
+import Card from './Card'
+import DashboardLabelStyled from './views'
 
 const Dashboard = () => {
     return (
         <div>
-            Zelupa
+          <DashboardLabelStyled>{"Ogłoszenia"}</DashboardLabelStyled>
+          <Card/>
         </div>
     );
 };
