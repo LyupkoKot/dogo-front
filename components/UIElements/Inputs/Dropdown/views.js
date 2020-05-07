@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const SelectInputStyled = styled("div")`
+const DropdownStyled = styled("div")`
 
   &>select {
     
@@ -11,4 +11,4 @@ const SelectInputStyled = styled("div")`
   }
 `
 
-export default SelectInputStyled
+export default DropdownStyled

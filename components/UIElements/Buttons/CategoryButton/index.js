@@ -4,11 +4,15 @@ import { CategoryButtonStyled, CategoryButtonBarStyled } from './views'
 const CategoryButtonBar = () => {
   return (
     <CategoryButtonBarStyled>
-      <CategoryButtonStyled>
+      <CategoryButtonStyled isActive={true}>
         {"Koty"}
       </CategoryButtonStyled>
-      <CategoryButtonStyled/>
-      <CategoryButtonStyled/>
+      <CategoryButtonStyled>
+        {"Psy"}
+      </CategoryButtonStyled>
+      <CategoryButtonStyled>
+        {"Inne"}
+      </CategoryButtonStyled>
     </CategoryButtonBarStyled>
   )
 }

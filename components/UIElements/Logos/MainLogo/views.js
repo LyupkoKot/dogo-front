@@ -5,5 +5,4 @@ export const Logo = styled("div")`
   height: 70px;
   background-image: url(../../../../static/images/logo.svg);
   background-repeat: no-repeat;
-  margin-left: 20vw;
 `;

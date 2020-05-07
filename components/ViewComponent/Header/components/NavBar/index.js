@@ -5,10 +5,10 @@ import { NavBarStyled } from './views'
 const NavBar = () => {
     return (
         <NavBarStyled>
-            <NavItem title={"Glowna"} to={"index"}/>
-            <NavItem title={"O nas"} to={"index"}/>
-            <NavItem title={"Zakladki"} to={"index"}/>
-            <NavItem title={"Logowanie"} to={"index"}/>
+            <NavItem title={"Glowna"} to={"/"}/>
+            <NavItem title={"O nas"} to={"about"}/>
+            <NavItem title={"Zakladki"} to={"favorites"}/>
+            <NavItem title={"Logowanie"} to={"login"}/>
         </NavBarStyled>
     );
 };

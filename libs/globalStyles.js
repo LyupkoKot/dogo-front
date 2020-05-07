@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import colors from '../themes/colors'
 
 
 const GlobalStyle = createGlobalStyle`
@@ -12,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: ${colors.mainBackground};
   }
 
   @font-face {

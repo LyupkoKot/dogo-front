@@ -6,7 +6,10 @@ const Button = styled("button")`
   width: ${({ width }) => (width ? width : "100%")};
   height: 44px;
   padding: 4px 13px;
-  margin-left: 30px;
+  // TODO fix margins count
+  margin-top: ${({marginTop}) => (marginTop ? marginTop : "0")};;
+  margin-left: ${({marginLeft}) => (marginLeft ? marginLeft : "9%")};
+  margin-right: ${({marginLeft}) => (marginLeft ? marginLeft : "5px")};
   // background-color: ${({ bgColor }) => (bgColor ? bgColor : "")};
   background: linear-gradient(90deg, #FF7C30 0%, #FF9C47 100%);
   color: ${({ color }) => (color ? color : colors.black)};

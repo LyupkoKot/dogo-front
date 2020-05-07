@@ -8,6 +8,7 @@ const CardStyled = styled("div")`
   height: 152px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
+  background-color: ${colors.white};
 `
 
 const CardImageStyled = styled("div")`

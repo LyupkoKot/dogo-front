@@ -9,7 +9,7 @@ const SearchInputStyled = styled("input")`
   border: none;
   margin-top: 30px;
   padding: 20px 50px;
-  background: url(../../../../static/images/searchIcon.svg) no-repeat 20px 50%;
+  background: url(../../../../static/images/searchIcon.svg) no-repeat 20px 50% ${colors.white};
   font-weight: ${fonts.normal};
   
   &::placeholder {
