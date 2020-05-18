@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-
+import { fonts, colors } from "../themes";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+    background-color: ${colors.mainBckg};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

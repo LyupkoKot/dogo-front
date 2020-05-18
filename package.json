@@ -11,10 +11,13 @@
     "next": "9.3.0",
     "react": "16.13.0",
     "react-dom": "16.13.0",
+    "react-photo-gallery": "^8.0.0",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
+    "babel-plugin-inline-react-svg": "^1.1.1",
     "babel-plugin-styled-components": "^1.10.7",
+    "file-loader": "^6.0.0",
     "prettier": "1.19.1"
   }
 }
