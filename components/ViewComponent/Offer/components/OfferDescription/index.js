@@ -12,8 +12,7 @@ const description = ["Płeć", "Rozmiar", "Wiek", "Rasa", "Kolor"];
 
 const OfferDescription = () => {
   return (
-    <OfferDescriptionWrapper>
-      <DescriptionTitleStyled>Opis</DescriptionTitleStyled>
+
       <OfferDescriptionStyled>
         <DescriptionTextStyled>
           Jest niewielkim zwierzęciem. Ma czarne, miękkie futerko. Koniuszek
@@ -60,7 +59,6 @@ const OfferDescription = () => {
           </li>
         </DescriptionListStyled>
       </OfferDescriptionStyled>
-    </OfferDescriptionWrapper>
   );
 };
 

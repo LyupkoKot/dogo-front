@@ -21,10 +21,10 @@ const OfferTitleStyled = styled("div")`
   }
   .icon {
     display: inline-block;
-    height: 17px;
-    width: 18px;
+    height: 15px;
+    width: 16px;
     margin-left: 11px;
-    background: url(../../../../../static/icons/cat.svg);
+    background: url(../../../../../static/images/cat.svg);
   }
 `;
 
@@ -34,10 +34,11 @@ const OfferPlaceDateStyled = styled("div")`
   flex-direction: row;
 `;
 const OfferLocationStyled = styled("div")`
+margin-left: 5px;
   .title {
     font-size: 12px;
     line-height: 15px;
-    color: #828ba3;
+    color: ${colors.gray};
     font-family: ${fonts.normal};
     display: inline-block;
     margin-left: 5px;

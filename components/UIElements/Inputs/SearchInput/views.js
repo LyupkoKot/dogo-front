@@ -13,7 +13,7 @@ const SearchInputStyled = styled("input")`
   font-weight: ${fonts.normal};
   
   &::placeholder {
-    color: ${colors.grey};
+    color: ${colors.gray};
   }
 `
 

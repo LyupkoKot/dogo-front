@@ -1,12 +1,14 @@
 import React from "react";
 import {
-    OfferDateStyled,
-    OfferLocationStyled,
-    OfferPlaceDateStyled,
-    OfferTitleCardStyled,
-    OfferTitleStyled
+  OfferDateStyled,
+  OfferLocationStyled,
+  OfferPlaceDateStyled,
+  OfferTitleCardStyled,
+  OfferTitleStyled
 } from "./view";
-import TextIcon from "../../../../UIElements/TextIcon/index";
+import Icon from "../../../../UIElements/Icon/index";
+import { colors, fonts } from "../../../../../themes";
+import TextIcon from "../../../../UIElements/TextIcon";
 
 const OfferTitleCard = () => {
   return (
@@ -17,12 +19,21 @@ const OfferTitleCard = () => {
       </OfferTitleStyled>
       <OfferPlaceDateStyled>
         <OfferLocationStyled>
-          <div className="icon"></div>
-          <div className="title">Wrocław</div>
+            <TextIcon
+                icon={"location"}
+                text={"Wroclaw"}
+                textSize={12}
+                textFont={fonts.normal}
+            />
         </OfferLocationStyled>
         <OfferDateStyled>
-            <TextIcon icon={"time"}/>
-          <div className="title">14 Sierpnia</div>
+          <TextIcon
+            icon={"time"}
+            iconSize={13}
+            text={"14 Sierpnia"}
+            textSize={12}
+            textFont={fonts.normal}
+          />
         </OfferDateStyled>
       </OfferPlaceDateStyled>
     </OfferTitleCardStyled>

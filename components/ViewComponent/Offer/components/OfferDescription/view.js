@@ -11,12 +11,8 @@ const DescriptionTitleStyled = styled("div")`
   color: ${({ color }) => (color ? color : colors.gray)};
 `;
 const OfferDescriptionStyled = styled("div")`
-  margin-top: 5px;
   display: flex;
   flex-direction: column;
-  padding: 0px 65px 0 65px;
-  background: ${({ color }) => (color ? color : colors.white)};
-  border-radius: 4px;
 `;
 const DescriptionTextStyled = styled("div")`
   font-size: 12px;

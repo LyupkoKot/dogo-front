@@ -2,13 +2,13 @@ import React from 'react'
 // views
 import { IconWrapper } from '../view'
 // icons
-import Icon from '../../../static/icons/time.svg'
+import Icon from '../../../static/icons/ruler.svg'
 
-const Time = ({ size, color }) => (
+const Ruler = ({ size, color }) => (
     <IconWrapper size={size} iconFill={color}>
         <Icon />
     </IconWrapper>
 );
 
-export default Time;
+export default Ruler;
 

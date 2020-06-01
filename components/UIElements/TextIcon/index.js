@@ -1,15 +1,14 @@
-import * as React from "react";
-// icon
-import {Location, Time} from '../../../themes/icons/index'
+import React from 'react';
+import {TextIconStyled, TextStyled} from "./view";
+import Icon from "../Icon";
 
-const TextIcon = ({ icon, iconSize, iconColor }) => {
-  const Icons = {
-    time:() => <Time size={iconSize} color={iconColor}/>,
-    location:() => <Location size={iconSize} color={iconColor}/>
-  };
-  const Icon = Icons[icon];
-
-  return <Icon/>;
+const TextIcon = ({icon, iconSize, iconColor, text, textSize, textColor, textFont}) => {
+    return (
+        <TextIconStyled>
+            <Icon icon={icon} iconSize={iconSize} iconColor={iconColor}/>
+            <TextStyled textSize={textSize} textColor={textColor} textFont={textFont}>{text}</TextStyled>
+        </TextIconStyled>
+    );
 };
 
 export default TextIcon;

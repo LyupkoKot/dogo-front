@@ -10,4 +10,6 @@ const UserImageStyled = styled("div")`
   background-clip: border-box;
   border-radius: 5px;
 `;
+
+
 export { UserImageStyled};

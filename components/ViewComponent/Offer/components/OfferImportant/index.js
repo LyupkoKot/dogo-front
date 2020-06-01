@@ -8,13 +8,13 @@ import {
 } from "../OfferDescription/view";
 import { fonts, colors } from "../../../../../themes";
 import {offer} from "../../../../../static/tempData/offers";
+import {ImportantWrapper} from "./view";
 
 const OfferImportant = () => {
   return (
-    <OfferDescriptionWrapper>
-      <DescriptionTitleStyled color={colors.orange}>Ważne</DescriptionTitleStyled>
 
-      <OfferDescriptionStyled color={colors.orange}>
+
+      <ImportantWrapper>
           <DescriptionListStyled>
               <li>
                   <ParameterTitleStyled color={colors.white}>
@@ -33,8 +33,8 @@ const OfferImportant = () => {
               </li>
 
           </DescriptionListStyled>
-      </OfferDescriptionStyled>
-    </OfferDescriptionWrapper>
+      </ImportantWrapper>
+
   );
 };
 
