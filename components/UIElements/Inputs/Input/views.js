@@ -7,7 +7,8 @@ const InputStyled = styled("input")`
   border-radius: 3px;
   padding: 11px 20px;
   border: none;
-  margin: 10px auto 0 auto;
+  margin: ${props => props.float ? '10px 0 0 0' : '10px auto 0 auto'};
+  float: ${props => props.float};
   
   @media only screen and (max-width: 800px) {
     width: ${({width}) => (width ? width : "70%")};
