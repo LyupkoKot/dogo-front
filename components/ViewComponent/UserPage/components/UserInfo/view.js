@@ -34,7 +34,6 @@ const UserContact = styled("div")`
   margin-bottom: 10px;
 `;
 const UserLocation = styled("div")`
-  margin-bottom: 21px;
 `;
 const UserReport = styled("div")`
   display: block;

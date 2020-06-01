@@ -8,7 +8,7 @@ import UserPageEdit from "../components/ViewComponent/UserPageEdit";
 const InitialPage = () => (
   <MainLayout>
     <GlobalStyle/>
-    <UserPageEdit/>
+    <Dashboard/>
   </MainLayout>
 );
 
