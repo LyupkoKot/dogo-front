@@ -1,12 +1,12 @@
 import React from 'react'
 import { IconButtonStyled, IconButtonImage, IconButtonText } from './view'
 
-const IconButton = props => {
+const IconButton = ({isActive, ...rest}) => {
   return (
-    <IconButtonStyled isActive={props.isActive}>
+    <IconButtonStyled isActive={isActive} {...rest}>
       <IconButtonImage/>
       <IconButtonText>
-        {props.children}
+        {rest.children}
       </IconButtonText>
     </IconButtonStyled>
   )

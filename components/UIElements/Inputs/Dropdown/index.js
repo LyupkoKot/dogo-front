@@ -9,12 +9,14 @@ const Dropdown = props => {
         {props.value || props.placeholder}
       </DropdownHeader>
       {props.isActive
-        ? <DropdownOptions>
+        && <DropdownOptions width={props.width}>
             {props.options.map((item, key) => (
-              <DropdownOption onClick={() => props.setValue(item)} key={key}/>
+              <DropdownOption onClick={() => {props.setValue(item); props.setActive()}} key={key}>
+                {item}
+              </DropdownOption>
             ))}
           </DropdownOptions>
-        : null}
+        }
     </DropdownStyled>
   )
 }

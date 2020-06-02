@@ -9,6 +9,7 @@ import RadioSection from '../../components/UIElements/Pickers/RadioSection'
 import Dropdown from '../../components/UIElements/Inputs/Dropdown'
 import DoubleWrapper from '../../themes/views/DoubleWrapper/view'
 import MainButton from '../../components/UIElements/Buttons/MainButton'
+import InputWide from '../../components/UIElements/Inputs/InputWide'
 
 const AddOffer = () => {
   const [active, setActive] = useState({
@@ -34,12 +35,12 @@ const AddOffer = () => {
         <BackgroundBasis>
           <Input placeholder={'Imie'} width={'410px'} float={'left'}/>
           <Input placeholder={'Miejscowosc'} width={'410px'} float={'left'}/>
-          <RadioSection items={['Kot', 'Pies']}/>
+          <RadioSection items={['Kot', 'Pies']} photos={[]}/>
           <RadioSection items={['Samica', 'Samiec']}/>
           <Dropdown
             isActive={active.sizeActive}
             setActive={() => setActive({...active, sizeActive: !active.sizeActive})}
-            options={['a', 'b', 'c']}
+            options={['Maly (do 40cm)', 'Sredni (do 60cm)', 'Duzy']}
             value={data.size}
             placeholder={'Rozmiar'}
             setValue={option => setData({...data, size: option})}
@@ -49,7 +50,7 @@ const AddOffer = () => {
             <Dropdown
               isActive={active.monthActive}
               setActive={() => setActive({...active, monthActive: !active.monthActive})}
-              options={['a', 'b', 'c']}
+              options={['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']}
               value={data.month}
               placeholder={'Miesiąc'}
               setValue={option => setData({...data, month: option})}
@@ -60,6 +61,7 @@ const AddOffer = () => {
           <Input placeholder={'Umaszczenie'} width={'410px'} float={'left'}/>
           <Input placeholder={'Rasa'} width={'410px'} float={'left'}/>
           <Input placeholder={'Koszty utrzymania'} width={'410px'} float={'left'}/>
+          <InputWide placeholder={'Napisz trochę biografii zwierza...'} rows={5} width={'100%'} />
         </BackgroundBasis>
         <MainLabel title={'Zdrowie'}/>
         <BackgroundBasis>
@@ -68,7 +70,7 @@ const AddOffer = () => {
           <Dropdown
             isActive={active.healthActive}
             setActive={() => setActive({...active, healthActive: !active.healthActive})}
-            options={['a', 'b', 'c']}
+            options={['Dobry', 'Normalny', 'Zly']}
             value={data.health}
             placeholder={'Ogólny stan zdrowia'}
             setValue={option => setData({...data, health: option})}
@@ -76,7 +78,7 @@ const AddOffer = () => {
           <Dropdown
             isActive={active.pasozytyActive}
             setActive={() => setActive({...active, pasozytyActive: !active.pasozytyActive})}
-            options={['a', 'b', 'c']}
+            options={['Tak', 'Nie', 'Nie wiem']}
             value={data.pasozyty}
             placeholder={'Czy są pasożyty?'}
             setValue={option => setData({...data, pasozyty: option})}
@@ -84,7 +86,7 @@ const AddOffer = () => {
           <Dropdown
             isActive={active.behaviourActive}
             setActive={() => setActive({...active, behaviourActive: !active.behaviourActive})}
-            options={['a', 'b', 'c']}
+            options={['Tak', 'Nie', 'Nie wiem']}
             value={data.behaviour}
             placeholder={'Czy są zaburzenia behawioralne?'}
             setValue={option => setData({...data, behaviour: option})}
