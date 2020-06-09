@@ -1,15 +1,14 @@
-import React from 'react';
+import React from 'react'
 import Card from './Card'
-import DashboardLabelStyled from './views'
-import {OfferWrapper} from "../Offer/view";
+import { DashboardWrapper, DashboardLabelStyled } from './views'
 
 const Dashboard = () => {
     return (
-        <OfferWrapper>
+        <DashboardWrapper>
           <DashboardLabelStyled>{"Ogłoszenia"}</DashboardLabelStyled>
           <Card/>
-        </OfferWrapper>
-    );
-};
+        </DashboardWrapper>
+    )
+}
 
-export default Dashboard;
+export default Dashboard

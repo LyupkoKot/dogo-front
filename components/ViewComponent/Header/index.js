@@ -1,9 +1,7 @@
-import React from "react";
-import LogoSection from "./sections/LogoSection";
-import { HeaderStyled, HeaderWrapper } from "./views";
-import AddOfferButton from "./components/Buttons/AddOfferButton";
-import NavBar from "./components/NavBar";
-import RightSection from "./sections/RightSection";
+import React from "react"
+import LogoSection from "./sections/LogoSection"
+import { HeaderStyled, HeaderWrapper } from "./views"
+import RightSection from "./sections/RightSection"
 
 const Header = () => {
   return (
@@ -13,7 +11,7 @@ const Header = () => {
         <RightSection />
       </HeaderStyled>
     </HeaderWrapper>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

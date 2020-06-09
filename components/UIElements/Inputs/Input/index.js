@@ -1,9 +1,9 @@
 import React from 'react'
 import InputStyled from './views'
 
-const Input = ({ placeholder, type, ...rest }) => {
+const Input = ({ placeholder, type, float, ...rest }) => {
   return (
-    <InputStyled placeholder={placeholder} type={type} {...rest}/>
+    <InputStyled placeholder={placeholder} type={type} float={float} {...rest}/>
   )
 }
 
