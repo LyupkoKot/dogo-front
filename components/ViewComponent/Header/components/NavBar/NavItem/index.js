@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link'
 import NavItemStyled from './views'
+
 const NavItem = ({title, to}) => {
     return (
       <NavItemStyled>

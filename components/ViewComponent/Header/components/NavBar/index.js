@@ -1,16 +1,26 @@
 import React from 'react';
 import NavItem from "./NavItem";
 import { NavBarStyled } from './views'
+import cookies from 'next-cookies'
+import NavItemIcon from './NavItemIcon'
 
-const NavBar = () => {
-    return (
-        <NavBarStyled>
-            <NavItem title={"Glówna"} to={"/"}/>
-            <NavItem title={"O nas"} to={"index"}/>
-            <NavItem title={"Zakladki"} to={"index"}/>
-            <NavItem title={"Logowanie"} to={"login"}/>
-        </NavBarStyled>
-    );
-};
+const NavBar = ({ token }) => {
+  return (
+    <NavBarStyled>
+      <NavItem title={"Glówna"} to={"/"}/>
+      <NavItem title={"Zakladki"} to={"favourites"}/>
+      {token !== null
+        ? <NavItemIcon to={'user'}/>
+        : <NavItem title={"Logowanie"} to={"login"}/>
+      }
+    </NavBarStyled>
+  )
+}
+
+NavBar.getInitialProps = async (ctx) => {
+  const token = cookies(ctx).token;
+  return { token }
+}
+
 
 export default NavBar;
