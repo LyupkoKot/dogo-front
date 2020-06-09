@@ -13,23 +13,23 @@ import TextIcon from "../../../../UIElements/TextIcon";
 import { colors, fonts } from "../../../../../themes";
 import ReportButton from "../../../../UIElements/Buttons/ReportButton";
 
-const UserInfo = () => {
+const UserInfo = ({user}) => {
   return (
     <UserInfoStyled>
       <UserInfoTop>
         <UserInfoTopLeft>
-          <UserName>Bob</UserName>
+          <UserName>{user.name}</UserName>
           <UserContactsWrapper>
             <UserContact>
-              <TextIcon icon={"phone"} iconSize={14} text={"+483421422888"} />
+              <TextIcon icon={"phone"} iconSize={14} text={user.phone_number} />
             </UserContact>
             <UserContact>
-              <TextIcon icon={"mail"} text={"jakub@mail.com"} />
+              <TextIcon icon={"mail"} text={user.email} />
             </UserContact>
             <UserContact>
               <TextIcon
                 icon={"social"}
-                text={"www.facebook.com/jakub"}
+                text={user.facebook}
                 textColor={colors.orange}
               />
             </UserContact>
@@ -42,7 +42,7 @@ const UserInfo = () => {
       <UserLocation>
         <TextIcon
           icon={"location"}
-          text={"Wroclaw"}
+          text={user.city}
           textSize={12}
           textFont={fonts.normal}
         />
