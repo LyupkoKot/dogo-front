@@ -1,7 +1,7 @@
 import React from 'react';
 import {UserImageStyled} from "./view";
 
-const UserImage = () => {
+const UserImage = ({user}) => {
     return (
         <UserImageStyled />
     );

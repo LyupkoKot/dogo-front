@@ -15,13 +15,13 @@ import ReportButton from "../../../../UIElements/Buttons/ReportButton";
 
 const UserInfo = ({user}) => {
   return (
-    <UserInfoStyled>
+    user&&<UserInfoStyled>
       <UserInfoTop>
         <UserInfoTopLeft>
           <UserName>{user.name}</UserName>
           <UserContactsWrapper>
             <UserContact>
-              <TextIcon icon={"phone"} iconSize={14} text={user.phone_number} />
+              <TextIcon icon={"phone"} iconSize={14} text={user} />
             </UserContact>
             <UserContact>
               <TextIcon icon={"mail"} text={user.email} />

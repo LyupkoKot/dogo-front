@@ -23,7 +23,7 @@ const UserPage = () => {
                 setUserState({ loading: false, user: response.body });
             })
             .catch(error => console.log(error));
-    });
+    }, [setUserState]);
     return (
             !userState.loading&&<OfferWrapper>
                 <OfferStyled>

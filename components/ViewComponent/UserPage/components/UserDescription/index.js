@@ -3,7 +3,7 @@ import { UserDescriptionStyled, UserDescriptionText } from "./view";
 
 const UserDescription = ({ user }) => {
   return (
-    <UserDescriptionStyled>
+    user&&<UserDescriptionStyled>
       <UserDescriptionText>{user.about}</UserDescriptionText>
     </UserDescriptionStyled>
   );
