@@ -7,8 +7,8 @@ const Dashboard = () => {
     return (
         <DashboardWrapper>
           <DashboardLabelStyled>{"Ogłoszenia"}</DashboardLabelStyled>
-          <Link href={'/login'} onClick={() => console.log(1)}>
-            <Card onClick={() => console.log(1)}/>
+          <Link href={'/login'}>
+            <Card/>
           </Link>
         </DashboardWrapper>
     )
