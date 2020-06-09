@@ -20,6 +20,9 @@ const CardDescriptionStyled = styled('div')`
   height: 100%;
   width: 50vw;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 const CardHeader = styled("div")`
@@ -39,11 +42,9 @@ const CardLike = styled("label")`
   height: 24px;
   cursor: pointer;
   position: relative;
-  float: right;
-  top: -40px;
+  margin-right: 8px;
   
   &>input {
-    position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
@@ -52,8 +53,6 @@ const CardLike = styled("label")`
   
   &>span {
     position: absolute;
-    top: 0;
-    left: 0;
     height: inherit;
     width: inherit;
     background: url(../../../../static/images/like.svg);
@@ -68,10 +67,6 @@ const CardButton = styled("button")`
   border-radius: 3px;
   border: none;
   padding: 0;
-  position: relative;
-  top: 68px;
-  left: 43.9vw;
-  
 `
 
 const CardButtonImage = styled("img")`
