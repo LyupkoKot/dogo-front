@@ -16,11 +16,12 @@ const UserPage = () => {
     useEffect(() => {
         setUserState({ loading: true });
         // Insert API url below
-        const apiUrl = ``;
+        const apiUrl = `http://192.168.1.246:3001/zpi/api/user/1`;
         fetch(apiUrl)
             .then(res => res.json())
             .then(response => {
                 setUserState({ loading: false, user: response.body });
+                console.log(response.body);
             })
             .catch(error => console.log(error));
     }, [setUserState]);
