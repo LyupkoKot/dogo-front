@@ -1,24 +1,24 @@
-import React from "react"
-import cookies from 'next-cookies'
-import MainLayout from "../layouts/MainLayout"
-import Dashboard from "../components/ViewComponent/Dashboard"
-import GlobalStyle from '../libs/globalStyles'
+import React, {useCallback} from "react";
+import MainLayout from "../layouts/MainLayout";
+import Dashboard from "../components/ViewComponent/Dashboard";
+import GlobalStyle from "../libs/globalStyles";
+import OfferContextProvider from "../contextProviders/OfferContextProvider";
+import {useDispatch} from "react-redux";
+import {setOfferValue} from "../actions/setOfferValue";
 
-const InitialPage = ({ token }) => {
-
-  console.log(token)
-
+const InitialPage = () => {
+    const dispatch = useDispatch();
+    const setOffer = useCallback(val => dispatch(setOfferValue(val)), [
+        dispatch
+    ]);
   return (
     <MainLayout>
-      <GlobalStyle/>
-      <Dashboard/>
+      <GlobalStyle />
+      <OfferContextProvider>
+        <Dashboard setOffer={setOffer}/>
+      </OfferContextProvider>
     </MainLayout>
-  )
-}
+  );
+};
 
-InitialPage.getInitialProps = async (ctx) => {
-  const token = cookies(ctx).token;
-  return { token }
-}
-
-export default InitialPage
+export default InitialPage;

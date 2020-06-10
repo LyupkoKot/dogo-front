@@ -10,7 +10,7 @@ import {
 } from "./view";
 import OfferImage from "../Offer/components/OfferImage";
 import TextIcon from "../../UIElements/TextIcon";
-import { fonts } from "../../../themes";
+import {colors, fonts} from "../../../themes";
 import { OfferLocationStyled } from "../Offer/components/OfferTitleCard/view";
 import {DescriptionTitleStyled, DescriptionWrapper} from "../../UIElements/Description/view";
 
@@ -41,6 +41,7 @@ const OfferCardSmall = () => {
                 text={"Wroclaw"}
                 textSize={12}
                 textFont={fonts.normal}
+                iconColor={colors.gray}
               />
             </OfferLocationStyled>
           </OfferCardInfoBottom>

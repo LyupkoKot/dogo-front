@@ -5,5 +5,4 @@ export const RightSideContentStyled = styled("div")`
   flex-direction: column;
   margin-left: 30px;
   width: 100%;
-  
 `;

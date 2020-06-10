@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   CardStyled,
   CardImageStyled,
@@ -9,47 +9,34 @@ import {
   CardButtonImage,
   CardLike,
   CardCategory
-} from './views'
-import Link from 'next/link'
+} from "./views";
+import Link from "next/link";
 
-
-const Card = () => {
+const Card = ({ offer, setOffer }) => {
   return (
     <CardStyled>
-      <CardImageStyled/>
+      <CardImageStyled />
       <CardDescriptionStyled>
-        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-          <div>
-            <CardHeader>
-              {"Maria"}
-            </CardHeader>
-            <CardSubHeader>
-              {"Jest niewielkim zwierzęciem. Ma czarne, miękkie futerko."}
-            </CardSubHeader>
-          </div>
-          <CardLike>
-            <input type="checkbox"/>
-            <span/>
-          </CardLike>
-        </div>
-        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-          <div>
-            <CardCategory>
-              <div/>
-              <label>
-                {"Kot"}
-              </label>
-            </CardCategory>
-          </div>
-          <CardButton>
-            <Link href={'offer/[id]'}>
-              <CardButtonImage />
-            </Link>
-          </CardButton>
-        </div>
+        <CardHeader>{offer.title}</CardHeader>
+        <CardSubHeader>
+          {offer.description}
+        </CardSubHeader>
+        <CardLike>
+          <input type="checkbox" />
+          <span />
+        </CardLike>
+        <CardButton onClick={()=>setOffer(offer)}>
+          <Link href={"offer/[id]"} as={`/offer/${offer.id}`}>
+            <CardButtonImage />
+          </Link>
+        </CardButton>
+        <CardCategory>
+          <div />
+          <label>{offer.animal_type}</label>
+        </CardCategory>
       </CardDescriptionStyled>
     </CardStyled>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
