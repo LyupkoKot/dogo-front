@@ -1,6 +1,6 @@
 import * as React from "react";
 // icon
-import {Location, Social, Time, Phone, Mail, Report, Female, Ruler, Pussy} from '../../../themes/icons/index'
+import {Location, Social, Time, Phone, Mail, Report, Female, Ruler, Pussy, World, Dog, Male, Cake} from '../../../themes/icons/index'
 
 
 
@@ -13,8 +13,16 @@ const Icon = ({ icon, iconSize, iconColor }) => {
     mail: () => <Mail size={iconSize} color={iconColor}/>,
     report: () => <Report size={iconSize} color={iconColor}/>,
     ruler: () => <Ruler size={iconSize} color={iconColor}/>,
-    pussy: () => <Pussy size={iconSize} color={iconColor}/>,
-    female: () => <Female size={iconSize} color={iconColor}/>,
+    Kot: () => <Pussy size={iconSize} color={iconColor}/>,
+    Samica: () => <Female size={iconSize} color={iconColor}/>,
+    world: () => <World size={iconSize} color={iconColor}/>,
+    Pies: () => <Dog size={iconSize} color={iconColor}/>,
+    Samiec: () => <Male size={iconSize} color={iconColor}/>,
+    cake: () => <Cake size={iconSize} color={iconColor}/>,
+
+
+
+
 
   };
   const CurrentIcon = Icons[icon];

@@ -3,6 +3,7 @@ import Header from "../../components/ViewComponent/Header";
 import { ContentWrapper } from "../../themes/views/Layout/views";
 
 const MainLayout = ({ children }) => {
+
   return (
     <div>
       <Header />

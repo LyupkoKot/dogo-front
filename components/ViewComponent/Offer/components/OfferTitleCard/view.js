@@ -12,19 +12,14 @@ const OfferTitleCardStyled = styled("div")`
 `;
 
 const OfferTitleStyled = styled("div")`
+  display: flex;
+  flex-direction: row;
   padding: 20px 0 0 10px;
   .title {
     font-size: 24px;
     color: ${colors.black};
     font-family: ${fonts.bold};
     display: inline-block;
-  }
-  .icon {
-    display: inline-block;
-    height: 15px;
-    width: 16px;
-    margin-left: 11px;
-    background: url(../../../../../static/images/cat.svg);
   }
 `;
 
@@ -34,7 +29,7 @@ const OfferPlaceDateStyled = styled("div")`
   flex-direction: row;
 `;
 const OfferLocationStyled = styled("div")`
-margin-left: 5px;
+  margin-left: 5px;
   .title {
     font-size: 12px;
     line-height: 15px;
@@ -71,10 +66,26 @@ const OfferDateStyled = styled("div")`
     background: url(../../../../../static/images/time.svg) no-repeat;
   }
 `;
+const SexIconStyled = styled("div")`
+  margin: 6px 0 0 5px;
+`;
+const OfferTitleCardInfo = styled("div")`
+  display: flex;
+  flex-direction: row;
+  padding: 0 0 0 10px;
+  div{
+  margin-left: 10px;
+  }
+  div:first-child{
+  margin-left: 0;
+  }
+`;
 export {
   OfferTitleCardStyled,
   OfferTitleStyled,
   OfferDateStyled,
   OfferLocationStyled,
-  OfferPlaceDateStyled
+  OfferPlaceDateStyled,
+  SexIconStyled,
+  OfferTitleCardInfo
 };

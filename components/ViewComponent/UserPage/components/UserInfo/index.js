@@ -11,7 +11,7 @@ import {
 } from "./view";
 import TextIcon from "../../../../UIElements/TextIcon";
 import { colors, fonts } from "../../../../../themes";
-import ReportButton from "../../../../UIElements/Buttons/ReportButton";
+import ReportButton from "../../../../UIElements/Buttons/TextButton";
 
 const UserInfo = ({user}) => {
   return (

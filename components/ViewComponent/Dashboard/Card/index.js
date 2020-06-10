@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   CardStyled,
   CardImageStyled,
@@ -9,37 +9,34 @@ import {
   CardButtonImage,
   CardLike,
   CardCategory
-} from './views'
+} from "./views";
+import Link from "next/link";
 
-
-const Card = () => {
+const Card = ({ offer, setOffer }) => {
   return (
     <CardStyled>
-      <CardImageStyled/>
+      <CardImageStyled />
       <CardDescriptionStyled>
-        <CardHeader>
-          {"Maria"}
-        </CardHeader>
+        <CardHeader>{offer.title}</CardHeader>
         <CardSubHeader>
-          {"Jest niewielkim zwierzęciem. Ma czarne, miękkie futerko."}
+          {offer.description}
         </CardSubHeader>
         <CardLike>
-          <input type="checkbox"/>
-          <span/>
+          <input type="checkbox" />
+          <span />
         </CardLike>
-        <CardButton>
-          <CardButtonImage/>
-          {/*<Link href="/"/>*/}
+        <CardButton onClick={()=>setOffer(offer)}>
+          <Link href={"offer/[id]"} as={`/offer/${offer.id}`}>
+            <CardButtonImage />
+          </Link>
         </CardButton>
         <CardCategory>
-          <div/>
-          <label>
-            {"Kot"}
-          </label>
+          <div />
+          <label>{offer.animal_type}</label>
         </CardCategory>
       </CardDescriptionStyled>
     </CardStyled>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
