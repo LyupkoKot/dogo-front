@@ -29,8 +29,12 @@ const Registration = () => {
         body: JSON.stringify(data)
       }
       )
-    .then(result => console.log(result))
-    .then()
+    .then(result => {
+      // console.log(result.body.getReader().closed.then(result => console.log(result)))
+
+      document.cookie = `token=${result.headers.get('x-auth-token')}`
+    })
+    .catch(err => console.log(err))
   }
 
   return (

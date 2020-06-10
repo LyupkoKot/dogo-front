@@ -1,5 +1,5 @@
 import React from 'react'
-import MainLayout from '../layouts'
+import MainLayout from '../layouts/MainLayout'
 import GlobalStyle from '../libs/globalStyles'
 import Dashboard from '../components/ViewComponent/Dashboard'
 

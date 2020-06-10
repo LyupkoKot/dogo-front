@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import cookies from "next-cookies"
+import { useRouter } from 'next/router'
 import {
   ButtonWrapper,
   LoginLabel,
@@ -17,6 +17,8 @@ const LoginSection = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const router = useRouter()
+
   const handleLogin =  () => {
 
     fetch('http://192.168.1.246:3001/zpi/api/login', {
@@ -30,7 +32,12 @@ const LoginSection = () => {
         password: password
       })
     })
-    .then(result => document.cookie = `token=${result.headers.get('x-auth-token')}`)
+    .then(result => {
+      if (result.ok) {
+        localStorage.setItem('token', result.headers.get('x-auth-token'))
+        router.push('/')
+      }
+    })
     .catch(err => console.log(err))
   }
 

@@ -12,7 +12,8 @@ const RadioSection = props => {
       <IconButton
         key={key}
         isActive={selected === key}
-        onClick={() => setSelected(key)}
+        onClick={() => {setSelected(key); props.onChange({...props.data, [props.setKey]: item})}}
+        photo={props.photo[key]}
       >
         {item}
       </IconButton>
