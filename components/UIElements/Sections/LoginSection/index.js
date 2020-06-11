@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useRouter } from 'next/router'
 import {
   ButtonWrapper,
@@ -11,8 +11,15 @@ import {
 import Input from "../../Inputs/Input"
 import MainButton from "../../Buttons/MainButton"
 import Link from "next/link"
+import { useDispatch } from 'react-redux'
+import { setUserId } from '../../../../actions/setOfferValue'
 
 const LoginSection = () => {
+
+  const dispatch = useDispatch();
+  const setUser = useCallback(val => dispatch(setUserId(val)), [
+    dispatch
+  ]);
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -33,8 +40,10 @@ const LoginSection = () => {
       })
     })
     .then(result => {
+      console.log(result)
       if (result.ok) {
         localStorage.setItem('token', result.headers.get('x-auth-token'))
+        setUser(result.headers.get('x-auth-token'))
         router.push('/')
       }
     })

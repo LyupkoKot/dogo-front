@@ -3,11 +3,11 @@ import MainLayout from "../../layouts/MainLayout";
 import GlobalStyle from '../../libs/globalStyles'
 import UserPage from "../../components/ViewComponent/UserPage";
 
-const Profile = () => (
+const Id = () => (
     <MainLayout>
         <GlobalStyle/>
         <UserPage/>
     </MainLayout>
 );
 
-export default Profile;
+export default Id;

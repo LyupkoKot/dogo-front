@@ -4,3 +4,10 @@ export const setOfferValue = (val) =>{
         payload: val
     }
 };
+
+export const setUserId = (val) =>{
+    return {
+        type: "SET_USER_ID",
+        payload: val
+    }
+};

@@ -15,7 +15,7 @@ import ReportButton from "../../../../UIElements/Buttons/TextButton";
 
 const UserInfo = ({user}) => {
   return (
-    user&&<UserInfoStyled>
+   <UserInfoStyled>
       <UserInfoTop>
         <UserInfoTopLeft>
           <UserName>{user.name}</UserName>

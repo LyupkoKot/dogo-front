@@ -1,10 +1,16 @@
 import React from 'react'
 import { NavItemIconImage, NavItemIconStyled, NavItemIconText } from './views'
 import Link from 'next/link'
+import { useSelector } from 'react-redux'
 
-const NavItemIcon = ({to}) => {
+const NavItemIcon = ({to, as}) => {
+
+  const id = useSelector(state => state.userId)
+
+  console.log(id, 'b')
+
   return (
-    <Link href={to}>
+    <Link href={to} as={as}>
       <NavItemIconStyled>
         <NavItemIconText>
           {'Moje konto'}
