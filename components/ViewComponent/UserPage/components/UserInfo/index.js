@@ -21,7 +21,7 @@ const UserInfo = ({user}) => {
           <UserName>{user.name}</UserName>
           <UserContactsWrapper>
             <UserContact>
-              <TextIcon icon={"phone"} iconSize={14} text={user} />
+              <TextIcon icon={"phone"} iconSize={14} text={user.phone_number} />
             </UserContact>
             <UserContact>
               <TextIcon icon={"mail"} text={user.email} />

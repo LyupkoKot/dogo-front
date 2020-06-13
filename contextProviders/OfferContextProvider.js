@@ -6,7 +6,7 @@ const OfferContextProvider = ({children}) => {
   const [offers, setOffers] = useState([]);
   useEffect(() => {
     // Insert API url below
-    const apiUrl = `http://192.168.1.246:3001/zpi/api/advertisement`;
+    const apiUrl = `http://77.55.221.84:3102/zpi/api/advertisement`;
     fetch(apiUrl)
         .then(res => res.json())
         .then(response => {

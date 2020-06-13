@@ -7,16 +7,22 @@ import Input from '../../components/UIElements/Inputs/Input'
 import MainLabel from '../../components/UIElements/Labels/MainLabel'
 import RadioSection from '../../components/UIElements/Pickers/RadioSection'
 import Dropdown from '../../components/UIElements/Inputs/Dropdown'
-import DoubleWrapper from '../../themes/views/DoubleWrapper/view'
 import MainButton from '../../components/UIElements/Buttons/MainButton'
 import InputWide from '../../components/UIElements/Inputs/InputWide'
+import { CookiesManagerContext } from '../../contextProviders/cookiesManager'
+import { useRouter } from 'next/router'
 
 const AddOffer = () => {
+
+  const cookies = React.useContext(CookiesManagerContext)
+  const userId = cookies.cookiesManager.getToken('x-auth-token')
+
+  const router = useRouter()
 
   const [cities, setCities] = useState([])
 
   useEffect(() => {
-    fetch('http://192.168.1.246:3001/zpi/api/cities'
+    fetch('http://77.55.221.84:3102/zpi/api/cities'
     )
     .then(result => result.json())
     .then(result => setCities(result))
@@ -43,17 +49,40 @@ const AddOffer = () => {
     breed: null,
     cost: null,
     description: null,
-    vaccination: null,
+    vaccines: null,
     allergy: null,
     healthProblems: null,
     behaviour: null
   })
 
+  console.log(userId, 1488)
+
   const handleCreate = () => {
-    fetch('http://192.168.1.246:3001/zpi/api/login', {
+
+    console.log({
+      title: data.name,
+        animal_type: data.type,
+        sex: data.sex,
+        size: data.size,
+        age: data.age,
+        color: data.color,
+        breed: data.breed,
+        cost_of_living: data.cost,
+        description: data.description,
+        vaccines: data.vaccines,
+        allergies: data.allergy,
+        health_status: active.healthActive ? 'Zdrowy' : 'Chory',
+        illness_description: data.healthDescription,
+        behavioral_disorders: active.behaviourActive,
+        behavioral_disorders_description: data.behaviourDescription,
+        city: data.city,
+    }, 14888841)
+
+    fetch('http://77.55.221.84:3102/zpi/api/advertisement', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-auth-token': userId
       },
       credentials: 'same-origin',
       body: JSON.stringify({
@@ -63,20 +92,21 @@ const AddOffer = () => {
         size: data.size,
         age: data.age,
         color: data.color,
-        city: data.city,
         breed: data.breed,
         cost_of_living: data.cost,
         description: data.description,
-        vaccines: data.vaccination,
+        vaccines: data.vaccines,
         allergies: data.allergy,
-        health_status: active.healthActive,
+        health_status: active.healthActive ? 'Zdrowy' : 'Chory',
         illness_description: data.healthDescription,
         behavioral_disorders: active.behaviourActive,
-        behavioral_disorders_description: data.behaviourDescription
+        behavioral_disorders_description: data.behaviourDescription,
+        city: data.city,
       })
     })
     .then(result => {
       if (result.ok) {
+        console.log(result)
         document.cookie = `token=${result.headers.get('x-auth-token')}`
         router.push('/')
       }
@@ -107,7 +137,7 @@ const AddOffer = () => {
             placeholder={'Miejscowość'}
             setValue={option => setData({...data, city: option})}
           />
-          <RadioSection onChange={() => setData({...data, })}
+          <RadioSection onChange={setData}
                         data={data} setKey={'type'}
                         items={['Kot', 'Pies']} photos={[]}/>
                         {/*todo*/}
@@ -163,15 +193,15 @@ const AddOffer = () => {
             placeholder={'Szczepienia podstawowe przeciwko chorobom zakaźnym'}
             width={'410px'}
             float={'left'}
-            vale={data.vaccination}
-            onChange={value => setData({...data, vaccination: value})}
+            value={data.vaccines}
+            onChange={event => setData({...data, vaccines: event.target.value})}
           />
           <Input
             placeholder={'Uczulenia'}
             width={'410px'}
             float={'left'}
             vale={data.allergy}
-            onChange={value => setData({...data, allergy: value})}
+            onChange={event => setData({...data, allergy: event.target.value})}
           />
           <Dropdown
             isActive={active.healthActive}
@@ -187,7 +217,7 @@ const AddOffer = () => {
             rows={5}
             width={'100%'}
             vale={data.healthDescription}
-            onChange={value => setData({...data, healthDescription: value})}
+            onChange={event => setData({...data, healthDescription: event.target.value})}
           />}
           <Dropdown
             isActive={active.behaviourActive}
@@ -203,7 +233,7 @@ const AddOffer = () => {
             rows={5}
             width={'100%'}
             vale={data.behaviourDescription}
-            onChange={value => setData({...data, behaviourDescription: value})}
+            onChange={event => setData({...data, behaviourDescription: event.target.value})}
           />}
         </BackgroundBasis>
         <MainButton label={'Gotowe'} margin={'50px auto'} onClick={handleCreate}/>

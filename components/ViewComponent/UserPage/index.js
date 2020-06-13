@@ -6,20 +6,19 @@ import UserInfo from "./components/UserInfo";
 import Description from "../../UIElements/Description";
 import UserDescription from "./components/UserDescription";
 import OfferCardSmall from "../OfferCardSmall";
-import { useSelector } from 'react-redux'
+import { CookiesManagerContext } from '../../../contextProviders/cookiesManager'
 import { parseJwt } from '../../../utils/functions'
 
 const UserPage = () => {
-    const userId = useSelector(state => state.userId);
-    console.log(userId)
+  const cookies = React.useContext(CookiesManagerContext)
+  const userId = cookies.cookiesManager.getToken('x-auth-token')
+    console.log(userId, 12)
     const [user, setUser] = useState(null);
 
-    useEffect(() => {
-
+  useEffect(() => {
         // Insert API url below
-
             console.log(userId)
-            const apiUrl = `http://192.168.1.246:3001/zpi/api/user/${parseJwt(userId)['_id']}`;
+            const apiUrl = `http://77.55.221.84:3102/zpi/api/user/me`
             fetch(apiUrl, {
               method: 'GET',
               headers: {
@@ -41,7 +40,6 @@ const UserPage = () => {
                 <OfferStyled>
                     <TopSection image={<UserImage user={user}/>} rightSideContent={<UserInfo user={user}/>}/>
                     <Description title={"Info"} content={<UserDescription user={user}/>}/>
-                    <OfferCardSmall/>
                 </OfferStyled>
             </OfferWrapper>
     );

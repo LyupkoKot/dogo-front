@@ -13,8 +13,12 @@ import MainButton from "../../Buttons/MainButton"
 import Link from "next/link"
 import { useDispatch } from 'react-redux'
 import { setUserId } from '../../../../actions/setOfferValue'
+import { CookiesManagerContext } from '../../../../contextProviders/cookiesManager'
 
 const LoginSection = () => {
+
+  const cookies = React.useContext(CookiesManagerContext)
+  // console.log(cookiesMamanger.cookiesManager)
 
   const dispatch = useDispatch();
   const setUser = useCallback(val => dispatch(setUserId(val)), [
@@ -28,7 +32,7 @@ const LoginSection = () => {
 
   const handleLogin =  () => {
 
-    fetch('http://192.168.1.246:3001/zpi/api/login', {
+    fetch(`http://77.55.221.84:3102/zpi/api/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -42,6 +46,7 @@ const LoginSection = () => {
     .then(result => {
       console.log(result)
       if (result.ok) {
+        cookies.cookiesManager.setToken(result.headers.get('x-auth-token'))
         localStorage.setItem('token', result.headers.get('x-auth-token'))
         setUser(result.headers.get('x-auth-token'))
         router.push('/')
