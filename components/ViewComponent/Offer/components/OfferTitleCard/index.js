@@ -24,8 +24,8 @@ const OfferTitleCard = ({ offer }) => {
 
       <OfferTitleCardInfo>
         <TextIcon icon={offer.sex} text={offer.sex} />
-        <TextIcon icon={"ruler"} text={offer.size} />
-        <TextIcon icon={"cake"} text={offer.age} />
+        <TextIcon icon={"ruler"} text={offer.size} iconSize={17}/>
+        <TextIcon icon={"cake"} text={offer.age} iconSize={15}/>
       </OfferTitleCardInfo>
 
       <OfferPlaceDateStyled>

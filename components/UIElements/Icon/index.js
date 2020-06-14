@@ -1,6 +1,21 @@
 import * as React from "react";
 // icon
-import {Location, Social, Time, Phone, Mail, Report, Female, Ruler, Pussy, World, Dog, Male, Cake} from '../../../themes/icons/index'
+import {
+  Location,
+  Social,
+  Time,
+  Phone,
+  Mail,
+  Report,
+  Female,
+  Ruler,
+  Pussy,
+  World,
+  Dog,
+  Male,
+  Cake,
+  Pencil
+} from '../../../themes/icons/index'
 
 
 
@@ -19,6 +34,7 @@ const Icon = ({ icon, iconSize, iconColor }) => {
     Pies: () => <Dog size={iconSize} color={iconColor}/>,
     Samiec: () => <Male size={iconSize} color={iconColor}/>,
     cake: () => <Cake size={iconSize} color={iconColor}/>,
+    pencil: () => <Pencil size={iconSize} color={iconColor}/>,
 
 
 

@@ -11,3 +11,10 @@ export const setUserId = (val) =>{
         payload: val
     }
 };
+
+export const setUserValue = (val) =>{
+    return {
+        type: "SET_USER",
+        payload: val
+    }
+};

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import {
   UserContact,
   UserContactsWrapper,
@@ -11,11 +11,14 @@ import {
 } from "./view";
 import TextIcon from "../../../../UIElements/TextIcon";
 import { colors, fonts } from "../../../../../themes";
-import ReportButton from "../../../../UIElements/Buttons/TextButton";
+import EditButton from "../../../../UIElements/Buttons/TextButton";
+import Link from "next/link";
+import {UserContext} from "../../../../../contextProviders/UserContextProvider";
 
-const UserInfo = ({user}) => {
+const UserInfo = ({ user }) => {
+  const {setUserData} = useContext(UserContext);
   return (
-   <UserInfoStyled>
+    <UserInfoStyled>
       <UserInfoTop>
         <UserInfoTopLeft>
           <UserName>{user.name}</UserName>
@@ -36,7 +39,9 @@ const UserInfo = ({user}) => {
           </UserContactsWrapper>
         </UserInfoTopLeft>
         <UserReport>
-          <ReportButton label={"Zgłoś naruszenie"} />
+          <Link href="/user/edit">
+            <EditButton label={"Edytuj"} icon={"pencil"} onClick={()=>setUserData(user)}/>
+          </Link>
         </UserReport>
       </UserInfoTop>
       <UserLocation>

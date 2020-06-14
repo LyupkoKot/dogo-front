@@ -3,14 +3,36 @@ import { UserInfoStyled } from "../../../UserPage/components/UserInfo/view";
 import Input from "../../../../UIElements/Inputs/Input";
 import EditInput from "../../../../UIElements/Inputs/EditInput";
 import { UserInfoInputs } from "./view";
+import {validateEmail} from "../../../../../utils/functions";
 
-const UserInfoEdit = () => {
+const UserInfoEdit = ({  setData, data }) => {
   return (
     <UserInfoStyled>
-        <EditInput placeholder={"Imie"} width={"410px"} />
-        <EditInput placeholder={"Telefon"} width={"410px"}/>
-        <EditInput placeholder={"Email"} width={"410px"} />
-        <EditInput placeholder={"Miejscowość"} width={"410px"}/>
+      <EditInput
+        placeholder={"Imie"}
+        value={data.name}
+        width={"410px"}
+        onChange={event => setData({ ...data, name: event.target.value })}
+      />
+      <EditInput
+        placeholder={"Telefon"}
+        value={data.phone_number}
+        width={"410px"}
+        onChange={event => setData({ ...data, phone_number: event.target.value })}
+      />
+      <EditInput
+        placeholder={"Email"}
+        value={data.email}
+        width={"410px"}
+        onChange={event => setData({ ...data, email: event.target.value})}
+      />
+      <EditInput
+        placeholder={"Miejscowość"}
+        value={data.city}
+        width={"410px"}
+        onChange={event => setData({ ...data, city: event.target.value })}
+
+      />
     </UserInfoStyled>
   );
 };

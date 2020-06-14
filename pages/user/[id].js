@@ -1,13 +1,16 @@
 import React from "react";
 import MainLayout from "../../layouts/MainLayout";
-import GlobalStyle from '../../libs/globalStyles'
+import GlobalStyle from "../../libs/globalStyles";
 import UserPage from "../../components/ViewComponent/UserPage";
+import UserContextProvider from "../../contextProviders/UserContextProvider";
 
 const Id = () => (
-    <MainLayout>
-        <GlobalStyle/>
-        <UserPage/>
-    </MainLayout>
+  <MainLayout>
+    <GlobalStyle />
+    <UserContextProvider>
+      <UserPage />
+    </UserContextProvider>
+  </MainLayout>
 );
 
 export default Id;

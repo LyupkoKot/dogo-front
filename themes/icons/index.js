@@ -11,6 +11,7 @@ import World from "../../themes/icons/World";
 import Dog from "../../themes/icons/Dog";
 import Male from "../../themes/icons/Male";
 import Cake from "../../themes/icons/Cake";
+import Pencil from "../../themes/icons/Pencil";
 
 
 export {
@@ -26,6 +27,7 @@ export {
     World,
     Dog,
     Male,
-    Cake
+    Cake,
+    Pencil
 
 };
