@@ -8,6 +8,7 @@ import {
 import Input from "../../UIElements/Inputs/Input"
 import MainButton from "../../UIElements/Buttons/MainButton"
 import Link from "next/link"
+import { useRouter } from 'next/router'
 
 const Registration = () => {
 
@@ -15,13 +16,15 @@ const Registration = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const router = useRouter()
+
   const handleCreate =  () => {
     const data = {
       name: name,
       email: email,
       password: password
     }
-    fetch('http://192.168.1.246:3001/zpi/api/registration', {
+    fetch('http://77.55.221.84:3102/zpi/api/registration', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -31,7 +34,7 @@ const Registration = () => {
       )
     .then(result => {
       // console.log(result.body.getReader().closed.then(result => console.log(result)))
-
+      result.ok && router.push('/user/edit')
       document.cookie = `token=${result.headers.get('x-auth-token')}`
     })
     .catch(err => console.log(err))
