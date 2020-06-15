@@ -29,16 +29,13 @@ const OfferPageEdit = () => {
     healthActive: false,
     behaviourActive: false
   })
-
-  console.log(offer)
-
   const [data, setData] = useState({
     name: offer.title,
     city: offer.city,
     size: offer.size,
     age: offer.age,
     type: offer.animal_type === 'Kot' ? 0 : 1,
-    sex: offer.sex === 'Samica' ? 0 : 1,
+    sex: offer.sex === "Samica" ? 0 : 1,
     color: offer.color,
     breed: offer.breed,
     cost: offer.cost_of_living,
@@ -50,6 +47,8 @@ const OfferPageEdit = () => {
     behaviour: offer.behavioral_disorders ? 'Tak' : 'Nie',
     behaviourDescription: offer.behavioral_disorders_description
   })
+
+  console.log(data)
 
   useEffect(() => {
     fetch(`http://77.55.221.84:3102/zpi/api/cities`)
@@ -90,9 +89,9 @@ const OfferPageEdit = () => {
   }
 
   return (
-    <DashboardWrapper>
+    <div>
       {offer &&
-        <div>
+        <DashboardWrapper>
       <MainLabel title={'Opis'}/>
         <BackgroundBasis>
         <Input
@@ -223,9 +222,9 @@ const OfferPageEdit = () => {
         />}
         </BackgroundBasis>
         <MainButton label={'Gotowe'} margin={'50px auto'} onClick={handleCreate}/>
-        </div>
+        </DashboardWrapper>
       }
-    </DashboardWrapper>
+      </div>
   )
 }
 
