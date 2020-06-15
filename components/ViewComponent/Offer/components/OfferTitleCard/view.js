@@ -80,6 +80,10 @@ const OfferTitleCardInfo = styled("div")`
   margin-left: 0;
   }
 `;
+
+const OfferEditButton = styled('div')`
+  margin-left: 35%;
+`
 export {
   OfferTitleCardStyled,
   OfferTitleStyled,
@@ -87,5 +91,6 @@ export {
   OfferLocationStyled,
   OfferPlaceDateStyled,
   SexIconStyled,
-  OfferTitleCardInfo
+  OfferTitleCardInfo,
+  OfferEditButton
 };
