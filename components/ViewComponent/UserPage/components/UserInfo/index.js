@@ -30,11 +30,11 @@ const UserInfo = ({ user }) => {
               <TextIcon icon={"mail"} text={user.email} />
             </UserContact>
             <UserContact>
-              <TextIcon
+              { user.facebook && <TextIcon
                 icon={"social"}
                 text={user.facebook}
                 textColor={colors.orange}
-              />
+              />}
             </UserContact>
           </UserContactsWrapper>
         </UserInfoTopLeft>
