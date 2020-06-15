@@ -137,11 +137,20 @@ const AddOffer = () => {
             placeholder={'Miejscowość'}
             setValue={option => setData({...data, city: option})}
           />
-          <RadioSection onChange={setData}
-                        data={data} setKey={'type'}
-                        items={['Kot', 'Pies']} photos={[]}/>
-                        {/*todo*/}
-          <RadioSection onChange={setData} data={data} setKey={'sex'} items={['Samica', 'Samiec']}/>
+          <RadioSection
+            onChange={setData}
+            data={data}
+            setKey={'type'}
+            items={['Kot', 'Pies']}
+            photos={['', '']}
+          />
+          <RadioSection
+            onChange={setData}
+            data={data}
+            setKey={'sex'}
+            items={['Samica', 'Samiec']}
+            photos={['', '']}
+          />
           <Dropdown
             isActive={active.sizeActive}
             setActive={() => setActive({...active, sizeActive: !active.sizeActive})}

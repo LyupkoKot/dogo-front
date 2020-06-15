@@ -9,11 +9,11 @@ import { CookiesManagerContext } from '../../../contextProviders/cookiesManager'
 import { replacePolish } from '../../../utils/functions'
 
 const Dashboard = ({ setOffer }) => {
-  const { filterOffers } = useContext(OfferContext)
 
   const cookies = React.useContext(CookiesManagerContext)
   const userToken = cookies.cookiesManager.getToken('x-auth-token')
 
+  const [data, setData] = useState([])
   const [cities, setCities] = useState([])
   const [active, setActive] = useState({
     cityActive: false,
@@ -21,8 +21,8 @@ const Dashboard = ({ setOffer }) => {
     sizeActive: false,
     healthActive: false
   })
+  const [search, setSearch] = useState('')
   const [filterData, setFilterData] = useState({
-    search: '',
     type: '',
     sex: '',
     city: '',
@@ -30,21 +30,15 @@ const Dashboard = ({ setOffer }) => {
     size: '',
     health: ''
   })
-  const [searchData, setSearchData] = useState([])
 
-  useEffect(() => {
-    filterApi()
-  }, [filterData.type, filterData.sex, filterData.city,
-    filterData.age, filterData.size, filterData.health])
+  const filteredData = search === ''
+    ? data
+    : data.filter(item => item.title.toLowerCase().includes(search) && item.is_active === true)
 
-  useEffect(() => {
-    fetch(`http://77.55.221.84:3102/zpi/api/cities`)
-    .then(result => result.json())
-    .then(result => setCities(result))
-    .catch(error => console.log(error))
-  }, [])
+  console.log(filterData, 'filter')
+  console.log(data, 'data')
 
-  const filterApi = () => {
+  function setFilter() {
     const url = 'http://77.55.221.84:3102/zpi/api/advertisement?'
     const searchObject = {
       type: filterData.type !== '' ? `AnimalType=${filterData.type === 'Koty' ? 'Kot' : 'Pies'}` : '',
@@ -58,89 +52,98 @@ const Dashboard = ({ setOffer }) => {
 
     console.log(finalUrl, 'url')
 
-    fetch(finalUrl, { headers: { 'x-auth-token': userToken } })
-    .then(result => result.json())
-    .then(result => console.log(result))
-    .catch(error => console.log(error))
+    if (filterData.type !== '' && filterData.sex !== '' && filterData.city !== ''
+    && filterData.age !== '' && filterData.size !== '' && filterData.health !== '')
+    fetch(finalUrl, {headers: {'x-auth-token': userToken}})
+      .then(result => result.json())
+      .then(result => setData(result))
+      .catch(error => console.log(error))
   }
+
+  useEffect(() => {
+    fetch(`http://77.55.221.84:3102/zpi/api/cities`)
+    .then(result => result.json())
+    .then(result => setCities(result))
+    .catch(error => console.log(error))
+
+    fetch(`http://77.55.221.84:3102/zpi/api/advertisement`)
+    .then(res => res.json())
+    .then(response => setData(response))
+    .catch(error => console.log(error))
+  }, [])
 
   return (
     <DashboardWrapper>
-      <div style={{display: 'flex', flexDirection: 'column'}}>
-        <SearchInput
-          onChange={event => setFilterData({...filterData, search: event.target.value})}
-          value={filterData.search}
-        />
-        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignContent: 'center'}}>
-          <RadioSection
-            items={['Koty', 'Psy']}
-            width={'135px'}
-            data={filterData}
-            setKey={'type'}
-            onChange={setFilterData}
-            photos={[]}
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+          <SearchInput
+            onChange={event => setSearch(event.target.value)}
+            value={filterData.search}
           />
-          <RadioSection
-            items={['Samica', 'Samiec']}
-            width={'135px'}
-            data={filterData}
-            setKey={'sex'}
-            onChange={setFilterData}
-            photos={['', '']}
-          />
-          <Dropdown
-            width={'280px'}
-            marginTop={'20px'}
-            isActive={active.cityActive}
-            setActive={() => setActive({...active, cityActive: !active.cityActive})}
-            options={cities}
-            value={filterData.city}
-            placeholder={'Miejscowość'}
-            setValue={option => setFilterData({...filterData, city: option})}
-          />
+          <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignContent: 'center'}}>
+            <RadioSection
+              items={['Koty', 'Psy']}
+              width={'135px'}
+              data={filterData}
+              setKey={'type'}
+              onChange={setFilterData}
+              onPress={setFilter}
+              photos={['', '']}
+            />
+            <RadioSection
+              items={['Samica', 'Samiec']}
+              width={'135px'}
+              data={filterData}
+              setKey={'sex'}
+              onChange={setFilterData}
+              onPress={setFilter}
+              photos={['', '']}
+            />
+            <Dropdown
+              width={'280px'}
+              marginTop={'20px'}
+              isActive={active.cityActive}
+              setActive={() => setActive({...active, cityActive: !active.cityActive})}
+              options={cities}
+              value={filterData.city}
+              placeholder={'Miejscowość'}
+              setValue={option => {setFilterData({...filterData, city: option}); setFilter()}}
+            />
+          </div>
+          <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Dropdown
+              width={'280px'}
+              isActive={active.ageActive}
+              setActive={() => setActive({...active, ageActive: !active.ageActive})}
+              options={['Młody', 'Dorosły', 'Stary']}
+              value={filterData.age}
+              placeholder={'Wiek'}
+              setValue={option => {setFilterData({...filterData, age: option}); setFilter()}}
+            />
+            <Dropdown
+              width={'280px'}
+              isActive={active.sizeActive}
+              setActive={() => setActive({...active, sizeActive: !active.sizeActive})}
+              options={['Mały', 'Średni', 'Duży']}
+              value={filterData.size}
+              placeholder={'Rozmiar'}
+              setValue={option => {setFilterData({...filterData, size: option}); setFilter()}}
+            />
+            <Dropdown
+              width={'280px'}
+              isActive={active.healthActive}
+              setActive={() => setActive({...active, healthActive: !active.healthActive})}
+              options={['Chory', 'Zdrowy']}
+              value={filterData.health}
+              placeholder={'Ogólny stan zdrowia'}
+              setValue={option => {setFilterData({...filterData, health: option}); setFilter()}}
+            />
+          </div>
         </div>
-        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-          <Dropdown
-            width={'280px'}
-            isActive={active.ageActive}
-            setActive={() => setActive({...active, ageActive: !active.ageActive})}
-            options={['Młody', 'Dorosły', 'Stary']}
-            value={filterData.age}
-            placeholder={'Wiek'}
-            setValue={option => setFilterData({...filterData, age: option})}
-          />
-          <Dropdown
-            width={'280px'}
-            isActive={active.sizeActive}
-            setActive={() => setActive({...active, sizeActive: !active.sizeActive})}
-            options={['Mały', 'Średni', 'Duży']}
-            value={filterData.size}
-            placeholder={'Rozmiar'}
-            setValue={option => setFilterData({...filterData, size: option})}
-          />
-          <Dropdown
-            width={'280px'}
-            isActive={active.healthActive}
-            setActive={() => setActive({...active, healthActive: !active.healthActive})}
-            options={['Chory', 'Zdrowy']}
-            value={filterData.health}
-            placeholder={'Ogólny stan zdrowia'}
-            setValue={option => setFilterData({...filterData, health: option})}
-          />
-        </div>
-      </div>
-      <DashboardLabelStyled>Ogłoszenie</DashboardLabelStyled>
-      {filterData.search === ''
-        ? (filterOffers &&
-            filterOffers.map((item, key) => (
-              <Card offer={item} key={key} setOffer={setOffer} />
-              )))
-        : filterOffers.filter((item, key) => (
-             item.title.includes(filterData.search)
-               ? <Card offer={item} key={key} setOffer={setOffer} />
-               : null
-            ))
-      }
+      {data &&
+        <div>
+          <DashboardLabelStyled>Ogłoszenie</DashboardLabelStyled>
+          {filteredData.map((item, key) => <Card offer={item} key={key} setOffer={setOffer} />)}
+        </div>}
     </DashboardWrapper>
   );
 };

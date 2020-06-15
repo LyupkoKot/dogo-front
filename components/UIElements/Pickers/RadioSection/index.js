@@ -14,8 +14,9 @@ const RadioSection = props => {
         isActive={selected === key}
         onClick={() => {
           selected !== key ? setSelected(key) : setSelected(null);
-          props.onChange({...props.data, [props.setKey]: selected !== key ? item : ''})}
-        }
+          props.onChange({...props.data, [props.setKey]: selected !== key ? item : ''});
+          props.onPress()
+        }}
         width={props.width}
         photo={props.photos[key]}
       >
