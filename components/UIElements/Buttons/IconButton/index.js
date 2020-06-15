@@ -1,10 +1,10 @@
 import React from 'react'
 import { IconButtonStyled, IconButtonImage, IconButtonText } from './view'
 
-const IconButton = ({isActive, ...rest}) => {
+const IconButton = ({isActive, photo, ...rest}) => {
   return (
     <IconButtonStyled isActive={isActive} {...rest}>
-      <IconButtonImage/>
+      <IconButtonImage src={photo}/>
       <IconButtonText>
         {rest.children}
       </IconButtonText>

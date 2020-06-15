@@ -6,6 +6,7 @@ const NavItemStyled = styled("div")`
   font-size: 14px;
   color: ${({ color }) => (color ? color : colors.black)};
   font-family: ${fonts.normal};
+  user-select: none;
 `;
 
 export default NavItemStyled

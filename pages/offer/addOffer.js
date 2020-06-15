@@ -22,7 +22,7 @@ const AddOffer = () => {
   const [cities, setCities] = useState([])
 
   useEffect(() => {
-    fetch('http://77.55.221.84:3102/zpi/api/cities'
+    fetch(`http://77.55.221.84:3102/zpi/api/cities`
     )
     .then(result => result.json())
     .then(result => setCities(result))
@@ -38,21 +38,21 @@ const AddOffer = () => {
   })
   const [data, setData] = useState({
     name: '',
-    city: null,
+    city: '',
     healthDescription: '',
-    behaviourDescription: null,
-    size: null,
-    age: null,
-    type: null,
-    sex: null,
-    color: null,
-    breed: null,
-    cost: null,
-    description: null,
-    vaccines: null,
-    allergy: null,
-    healthProblems: null,
-    behaviour: null
+    behaviourDescription:'',
+    size: '',
+    age: '',
+    type: '',
+    sex: '',
+    color: '',
+    breed: '',
+    cost: '',
+    description: '',
+    vaccines: '',
+    allergy: '',
+    healthProblems: '',
+    behaviour: ''
   })
 
   console.log(userId, 1488)

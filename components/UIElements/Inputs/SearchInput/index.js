@@ -1,9 +1,13 @@
 import React from 'react'
 import SearchInputStyled from './views'
 
-const SearchInput = () => {
+const SearchInput = props => {
   return (
-    <SearchInputStyled placeholder={"Wyszukiwanie"}/>
+    <SearchInputStyled
+      placeholder={"Wyszukiwanie"}
+      onChange={props.onChange}
+      value={props.value}
+    />
   )
 }
 

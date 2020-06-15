@@ -5,12 +5,13 @@ const DropdownStyled = styled.div`
   margin-left: ${props => props.marginLeft ? props.marginLeft : '0'};
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: ${props => props.marginTop ? props.marginTop : '10px'};
 `
 
 const DropdownHeader = styled.div`
   width: ${props => props.width ? props.width : '410px'};
   display: flex;
+  position: relative;
   height: 40px;
   align-items: center;
   justify-content: center;
@@ -20,6 +21,18 @@ const DropdownHeader = styled.div`
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
   border-radius: 3px;
   user-select: none;
+  background-color: #ffffff;
+`
+
+const DropdownArrow = styled.div`
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  right: 10px;
+  top: 10px;
+  background-image: ${props => props.isActive ? 'url(../../../../static/icons/arrowUp.svg)' : 'url(../../../../static/icons/arrowDown.svg)'};
+  background-repeat: no-repeat;
+  background-position: center;
 `
 
 const DropdownOptions = styled.div`
@@ -30,6 +43,7 @@ const DropdownOptions = styled.div`
   flex-direction: column;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
   background-color: #ffffff;
+  z-index: 1000;
 `
 
 const DropdownOption = styled.div`
@@ -45,4 +59,4 @@ const DropdownOption = styled.div`
   background-color: #ffffff;
 `
 
-export { DropdownStyled, DropdownHeader, DropdownOptions, DropdownOption }
+export { DropdownStyled, DropdownHeader, DropdownArrow, DropdownOptions, DropdownOption }

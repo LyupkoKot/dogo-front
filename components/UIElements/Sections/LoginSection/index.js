@@ -18,7 +18,7 @@ import { CookiesManagerContext } from '../../../../contextProviders/cookiesManag
 const LoginSection = () => {
 
   const cookies = React.useContext(CookiesManagerContext)
-  // console.log(cookiesMamanger.cookiesManager)
+  // console.log(cookiesManager.cookiesManager)
 
   const dispatch = useDispatch();
   const setUser = useCallback(val => dispatch(setUserId(val)), [

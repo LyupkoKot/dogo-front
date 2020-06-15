@@ -8,6 +8,7 @@ const CardStyled = styled("div")`
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   background-color: ${colors.white};
+  margin-top: 20px;
 `
 
 const CardImageStyled = styled("div")`
@@ -22,7 +23,6 @@ const CardDescriptionStyled = styled('div')`
   padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 `
 
 const CardHeader = styled("div")`
@@ -79,14 +79,18 @@ const CardButtonImage = styled("img")`
 
 const CardCategory = styled("div")`
   height: 15px;
-  color: ${({ category }) => (category === "primary" ? colors.grey : colors.lightGrey)};
+  color: ${({category}) => (category === "primary" ? colors.grey : colors.lightGrey)};
   display: flex;
   flex-direction: row;
+  
+  &~div:not(:first-child) {
+    margin-left: 12px;
+  }
 
   &>div {
     height: 15px;
     width: 16px;
-    background: url(../../../../static/images/cat.svg);
+    background: url(${props => props.image ? props.image : '../../../../static/images/cat.svg'}) no-repeat;
   }
   
   &>label {

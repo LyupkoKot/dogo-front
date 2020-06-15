@@ -2,13 +2,13 @@ import React from 'react';
 import Link from 'next/link'
 import NavItemStyled from './views'
 
-const NavItem = ({title, to}) => {
+const NavItem = ({title, to, isActive, onClick}) => {
     return (
-      <NavItemStyled>
+      <NavItemStyled color={isActive && '#FF7C30'} onClick={onClick}>
         <Link href={to}>
-            <div>
-                {title}
-            </div>
+          <div>
+              {title}
+          </div>
         </Link>
       </NavItemStyled>
     );

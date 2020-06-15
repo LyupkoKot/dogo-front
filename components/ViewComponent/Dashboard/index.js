@@ -1,17 +1,146 @@
 import React, { useContext, useEffect, useState } from 'react'
-import Card from "./Card";
-import { DashboardWrapper, DashboardLabelStyled } from "./views";
-import { OfferContext } from "../../../contextProviders/OfferContextProvider";
+import Card from './Card'
+import { DashboardWrapper, DashboardLabelStyled } from './views'
+import { OfferContext } from '../../../contextProviders/OfferContextProvider'
+import RadioSection from '../../UIElements/Pickers/RadioSection'
+import Dropdown from '../../UIElements/Inputs/Dropdown'
+import SearchInput from '../../UIElements/Inputs/SearchInput'
+import { CookiesManagerContext } from '../../../contextProviders/cookiesManager'
+import { replacePolish } from '../../../utils/functions'
 
 const Dashboard = ({ setOffer }) => {
-  const { filterOffers } = useContext(OfferContext);
+  const { filterOffers } = useContext(OfferContext)
+
+  const cookies = React.useContext(CookiesManagerContext)
+  const userToken = cookies.cookiesManager.getToken('x-auth-token')
+
+  const [cities, setCities] = useState([])
+  const [active, setActive] = useState({
+    cityActive: false,
+    ageActive: false,
+    sizeActive: false,
+    healthActive: false
+  })
+  const [filterData, setFilterData] = useState({
+    search: '',
+    type: '',
+    sex: '',
+    city: '',
+    age: '',
+    size: '',
+    health: ''
+  })
+  const [searchData, setSearchData] = useState([])
+
+  useEffect(() => {
+    filterApi()
+  }, [filterData.type, filterData.sex, filterData.city,
+    filterData.age, filterData.size, filterData.health])
+
+  useEffect(() => {
+    fetch(`http://77.55.221.84:3102/zpi/api/cities`)
+    .then(result => result.json())
+    .then(result => setCities(result))
+    .catch(error => console.log(error))
+  }, [])
+
+  const filterApi = () => {
+    const url = 'http://77.55.221.84:3102/zpi/api/advertisement?'
+    const searchObject = {
+      type: filterData.type !== '' ? `AnimalType=${filterData.type === 'Koty' ? 'Kot' : 'Pies'}` : '',
+      sex: filterData.sex !== '' ? `Sex=${filterData.sex}` : '',
+      city: filterData.city !== '' ? `City=${filterData.city}` : '',
+      age: filterData.age !== '' ? `Age=${replacePolish(filterData.age)}` : '',
+      size: filterData.size !== '' ? `Size=${replacePolish(filterData.size)}` : '',
+      health: filterData.health !== '' ? `HealthStatus=${filterData.health}` : ''
+    }
+    const finalUrl = url + Object.values(searchObject).filter(item => item !== '').join('&')
+
+    console.log(finalUrl, 'url')
+
+    fetch(finalUrl, { headers: { 'x-auth-token': userToken } })
+    .then(result => result.json())
+    .then(result => console.log(result))
+    .catch(error => console.log(error))
+  }
+
   return (
     <DashboardWrapper>
+      <div style={{display: 'flex', flexDirection: 'column'}}>
+        <SearchInput
+          onChange={event => setFilterData({...filterData, search: event.target.value})}
+          value={filterData.search}
+        />
+        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignContent: 'center'}}>
+          <RadioSection
+            items={['Koty', 'Psy']}
+            width={'135px'}
+            data={filterData}
+            setKey={'type'}
+            onChange={setFilterData}
+            photos={[]}
+          />
+          <RadioSection
+            items={['Samica', 'Samiec']}
+            width={'135px'}
+            data={filterData}
+            setKey={'sex'}
+            onChange={setFilterData}
+            photos={['', '']}
+          />
+          <Dropdown
+            width={'280px'}
+            marginTop={'20px'}
+            isActive={active.cityActive}
+            setActive={() => setActive({...active, cityActive: !active.cityActive})}
+            options={cities}
+            value={filterData.city}
+            placeholder={'Miejscowość'}
+            setValue={option => setFilterData({...filterData, city: option})}
+          />
+        </div>
+        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+          <Dropdown
+            width={'280px'}
+            isActive={active.ageActive}
+            setActive={() => setActive({...active, ageActive: !active.ageActive})}
+            options={['Młody', 'Dorosły', 'Stary']}
+            value={filterData.age}
+            placeholder={'Wiek'}
+            setValue={option => setFilterData({...filterData, age: option})}
+          />
+          <Dropdown
+            width={'280px'}
+            isActive={active.sizeActive}
+            setActive={() => setActive({...active, sizeActive: !active.sizeActive})}
+            options={['Mały', 'Średni', 'Duży']}
+            value={filterData.size}
+            placeholder={'Rozmiar'}
+            setValue={option => setFilterData({...filterData, size: option})}
+          />
+          <Dropdown
+            width={'280px'}
+            isActive={active.healthActive}
+            setActive={() => setActive({...active, healthActive: !active.healthActive})}
+            options={['Chory', 'Zdrowy']}
+            value={filterData.health}
+            placeholder={'Ogólny stan zdrowia'}
+            setValue={option => setFilterData({...filterData, health: option})}
+          />
+        </div>
+      </div>
       <DashboardLabelStyled>Ogłoszenie</DashboardLabelStyled>
-      {filterOffers &&
-        filterOffers.map((item, key) => (
-          <Card offer={item} key={key} setOffer={setOffer} />
-        ))}
+      {filterData.search === ''
+        ? (filterOffers &&
+            filterOffers.map((item, key) => (
+              <Card offer={item} key={key} setOffer={setOffer} />
+              )))
+        : filterOffers.filter((item, key) => (
+             item.title.includes(filterData.search)
+               ? <Card offer={item} key={key} setOffer={setOffer} />
+               : null
+            ))
+      }
     </DashboardWrapper>
   );
 };

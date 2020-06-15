@@ -4,16 +4,20 @@ import IconButton from '../../Buttons/IconButton'
 
 const RadioSection = props => {
 
-  const [selected, setSelected] = useState(-1)
+  const [selected, setSelected] = useState(null)
 
   return (
-    <RadioSectionWrapper>
+    <RadioSectionWrapper marginTop={props.marginTop}>
     {props.items.map((item, key) => (
       <IconButton
         key={key}
         isActive={selected === key}
-        onClick={() => {setSelected(key); props.onChange({...props.data, [props.setKey]: item})}}
-        // photo={props.photo[key]}
+        onClick={() => {
+          selected !== key ? setSelected(key) : setSelected(null);
+          props.onChange({...props.data, [props.setKey]: selected !== key ? item : ''})}
+        }
+        width={props.width}
+        photo={props.photos[key]}
       >
         {item}
       </IconButton>

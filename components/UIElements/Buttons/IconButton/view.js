@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const IconButtonStyled = styled.button`
-  width: 200px;
+  width: ${props => props.width ? props.width :'200px'};
   height: 40px;
   display: flex;
   flex-direction: row;
