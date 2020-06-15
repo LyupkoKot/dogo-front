@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Card from './Card'
 import { DashboardWrapper, DashboardLabelStyled } from './views'
-import { OfferContext } from '../../../contextProviders/OfferContextProvider'
 import RadioSection from '../../UIElements/Pickers/RadioSection'
 import Dropdown from '../../UIElements/Inputs/Dropdown'
 import SearchInput from '../../UIElements/Inputs/SearchInput'
@@ -52,10 +51,13 @@ const Dashboard = ({ setOffer }) => {
 
     console.log(finalUrl, 'url')
 
-    if (filterData.type !== '' && filterData.sex !== '' && filterData.city !== ''
-    && filterData.age !== '' && filterData.size !== '' && filterData.health !== '')
+    if (filterData.type !== '' || filterData.sex !== '' || filterData.city !== ''
+    || filterData.age !== '' || filterData.size !== '' || filterData.health !== '')
     fetch(finalUrl, {headers: {'x-auth-token': userToken}})
-      .then(result => result.json())
+      .then(result => {
+        console.log(result, 'res');
+        return result.json();
+      })
       .then(result => setData(result))
       .catch(error => console.log(error))
   }

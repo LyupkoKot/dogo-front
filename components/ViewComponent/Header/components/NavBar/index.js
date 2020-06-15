@@ -22,7 +22,7 @@ const NavBar = () => {
         isActive={active === 1}
         onClick={() => setActive(1)}
         title={"Zakladki"}
-        to={"/favorites"}
+        to={userToken ? "/favorites" : '/login'}
       />
       {userToken
         ? <NavItemIcon

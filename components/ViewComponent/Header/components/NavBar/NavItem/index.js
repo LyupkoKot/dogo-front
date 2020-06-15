@@ -4,7 +4,7 @@ import NavItemStyled from './views'
 
 const NavItem = ({title, to, isActive, onClick}) => {
     return (
-      <NavItemStyled color={isActive && '#FF7C30'} onClick={onClick}>
+      <NavItemStyled onClick={onClick}>
         <Link href={to}>
           <div>
               {title}
