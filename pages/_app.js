@@ -4,6 +4,7 @@ import { WithCookiesContextManager } from '../contextProviders/cookiesManager'
 import { store } from "../store/config"
 
 function MyApp({ Component, pageProps }) {
+
   return (
     <WithCookiesContextManager>
       <Provider store={store}>

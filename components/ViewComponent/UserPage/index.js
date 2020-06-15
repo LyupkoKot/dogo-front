@@ -6,9 +6,41 @@ import UserInfo from "./components/UserInfo";
 import Description from "../../UIElements/Description";
 import UserDescription from "./components/UserDescription";
 import { UserContext } from "../../../contextProviders/UserContextProvider";
+import { OfferList } from "./view";
+import OfferCardSmall from "../OfferCardSmall";
+import { CookiesManagerContext } from "../../../contextProviders/cookiesManager";
+import { parseJwt } from "../../../utils/functions";
+import Link from "next/link";
+import { CardButton } from "../Dashboard/Card/views";
+import * as Router from "next";
+import { useRouter } from "next/router";
 
-const UserPage = () => {
+const UserPage = ({ setOffer }) => {
   const { user } = useContext(UserContext);
+  const router = useRouter();
+  const cookies = React.useContext(CookiesManagerContext);
+  const userId = cookies.cookiesManager.getToken("x-auth-token");
+  const [offers, setOffers] = useState([]);
+  useEffect(() => {
+    // Insert API url below
+    const apiUrl = `http://77.55.221.84:3102/zpi/api/advertisement`;
+    fetch(apiUrl)
+      .then(res => res.json())
+      .then(response => {
+        const offersFiltered = response.filter(
+          e => e.publisher_id === parseJwt(userId)._id
+        );
+        setOffers(offersFiltered.filter(e => e.is_active === true));
+      })
+      .catch(error => console.log(error));
+  }, []);
+  const handleCLick = offer => {
+    console.log("ja tuj")
+    setOffer(offer);
+    router.push("/offer/[id]", `/offer/${offer.id}`);
+  };
+  console.log(offers, 123);
+
   return (
     <OfferWrapper>
       {user !== null && (
@@ -21,6 +53,18 @@ const UserPage = () => {
             title={"Info"}
             content={<UserDescription user={user} />}
           />
+
+          {offers && (
+            <OfferList>
+              {offers.map((item, key) => (
+                  <OfferCardSmall
+                    offer={item}
+                    key={key}
+                    handleClick={handleCLick}
+                  />
+              ))}
+            </OfferList>
+          )}
         </OfferStyled>
       )}
     </OfferWrapper>

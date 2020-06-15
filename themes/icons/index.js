@@ -12,6 +12,9 @@ import Dog from "../../themes/icons/Dog";
 import Male from "../../themes/icons/Male";
 import Cake from "../../themes/icons/Cake";
 import Pencil from "../../themes/icons/Pencil";
+import Trash from "../../themes/icons/Trash";
+import Edit from "../../themes/icons/Edit";
+
 
 
 export {
@@ -28,6 +31,8 @@ export {
     Dog,
     Male,
     Cake,
-    Pencil
+    Pencil,
+    Trash,
+    Edit
 
 };

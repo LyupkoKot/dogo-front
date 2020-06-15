@@ -3,12 +3,12 @@ import { Button, ButtonIcon } from "./view";
 import Icon from "../../Icon";
 
 
-const TextButton = ({ icon, iconSize, label, isIcon, ...rest }) => {
+const TextButton = ({ icon, iconSize, iconColor, label, isIcon, ...rest }) => {
   return (
     <Button {...rest}>
       {label}
         {icon && <ButtonIcon >
-        <Icon icon={icon} iconSize={iconSize}/>
+        <Icon icon={icon} iconColor={iconColor} iconSize={iconSize}/>
       </ButtonIcon>}
     </Button>
   );

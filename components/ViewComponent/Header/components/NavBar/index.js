@@ -8,7 +8,7 @@ const NavBar = () => {
 
   const userToken = React.useContext(CookiesManagerContext).cookiesManager.getToken('x-auth-token')
 
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState()
 
   return (
     <NavBarStyled>
@@ -22,7 +22,7 @@ const NavBar = () => {
         isActive={active === 1}
         onClick={() => setActive(1)}
         title={"Zakladki"}
-        to={"/favourites"}
+        to={"/favorites"}
       />
       {userToken
         ? <NavItemIcon

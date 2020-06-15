@@ -139,9 +139,8 @@ const AddOffer = () => {
           />
           <RadioSection onChange={setData}
                         data={data} setKey={'type'}
-                        items={['Kot', 'Pies']} photos={[]}/>
-                        {/*todo*/}
-          <RadioSection onChange={setData} data={data} setKey={'sex'} items={['Samica', 'Samiec']}/>
+                        items={['Kot', 'Pies']} photos={['', '']}/>
+          <RadioSection onChange={setData} data={data} setKey={'sex'} photos={['', '']} items={['Samica', 'Samiec']}/>
           <Dropdown
             isActive={active.sizeActive}
             setActive={() => setActive({...active, sizeActive: !active.sizeActive})}

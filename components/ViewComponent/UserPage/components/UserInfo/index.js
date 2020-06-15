@@ -40,7 +40,7 @@ const UserInfo = ({ user }) => {
         </UserInfoTopLeft>
         <UserReport>
           <Link href="/user/edit">
-            <EditButton label={"Edytuj"} icon={"pencil"} onClick={()=>setUserData(user)}/>
+            <EditButton label={"Edytuj"}  icon={"edit"} iconColor={colors.orange} onClick={()=>setUserData(user)}/>
           </Link>
         </UserReport>
       </UserInfoTop>

@@ -37,7 +37,7 @@ const CardSubHeader = styled("div")`
   font-family: ${fonts.normal};
 `
 
-const CardLike = styled("label")`
+const CardLike = styled("div")`
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -55,8 +55,12 @@ const CardLike = styled("label")`
     position: absolute;
     height: inherit;
     width: inherit;
-    background: url(../../../../static/images/like.svg);
+    background: ${({isActive}) => (isActive  ? `url(../../../../static/images/like.svg);`:`url(../../../../static/images/heartInActive.png);`)}
   }
+  &>span:hover{
+  background: url(../../../../static/images/like.svg)  ;
+  }
+  
 `
 
 const CardButton = styled("button")`
@@ -90,7 +94,7 @@ const CardCategory = styled("div")`
   &>div {
     height: 15px;
     width: 16px;
-    background: url(${props => props.image ? props.image : '../../../../static/images/cat.svg'}) no-repeat;
+    background: url(${props => props.image ? props.image:''}) no-repeat;
   }
   
   &>label {
