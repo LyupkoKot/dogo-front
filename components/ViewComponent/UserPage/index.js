@@ -10,10 +10,8 @@ import { OfferList } from "./view";
 import OfferCardSmall from "../OfferCardSmall";
 import { CookiesManagerContext } from "../../../contextProviders/cookiesManager";
 import { parseJwt } from "../../../utils/functions";
-import Link from "next/link";
-import { CardButton } from "../Dashboard/Card/views";
-import * as Router from "next";
 import { useRouter } from "next/router";
+import MainButton from '../../UIElements/Buttons/MainButton'
 
 const UserPage = ({ setOffer }) => {
   const { user } = useContext(UserContext);
@@ -41,6 +39,11 @@ const UserPage = ({ setOffer }) => {
   };
   console.log(offers, 123);
 
+  const handleLogout = () => {
+    cookies.cookiesManager.removeToken()
+    router.push('/')
+  }
+
   return (
     <OfferWrapper>
       {user !== null && (
@@ -65,6 +68,7 @@ const UserPage = ({ setOffer }) => {
               ))}
             </OfferList>
           )}
+          <MainButton label={'Log out'} onClick={handleLogout}/>
         </OfferStyled>
       )}
     </OfferWrapper>

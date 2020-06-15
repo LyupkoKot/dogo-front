@@ -143,6 +143,7 @@ const AddOffer = () => {
             setKey={'type'}
             items={['Kot', 'Pies']}
             photos={['', '']}
+            onPress={()=>{}}
           />
           <RadioSection
             onChange={setData}
@@ -150,6 +151,7 @@ const AddOffer = () => {
             setKey={'sex'}
             items={['Samica', 'Samiec']}
             photos={['', '']}
+            onPress={()=>{}}
           />
           <Dropdown
             isActive={active.sizeActive}

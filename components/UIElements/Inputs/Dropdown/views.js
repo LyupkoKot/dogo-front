@@ -35,6 +35,18 @@ const DropdownArrow = styled.div`
   background-position: center;
 `
 
+const DropdownCross = styled.div`
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  right: 10px;
+  top: 10px;
+  background-image: url(../../../../static/icons/close.svg);
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+`
+
 const DropdownOptions = styled.div`
   width: ${props => props.width ? props.width : '410px'};
   position: absolute;
@@ -59,4 +71,4 @@ const DropdownOption = styled.div`
   background-color: #ffffff;
 `
 
-export { DropdownStyled, DropdownHeader, DropdownArrow, DropdownOptions, DropdownOption }
+export { DropdownStyled, DropdownHeader, DropdownArrow, DropdownOptions, DropdownOption, DropdownCross }
