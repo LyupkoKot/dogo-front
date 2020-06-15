@@ -16,13 +16,17 @@ import { colors, fonts } from "../../../themes";
 import { OfferLocationStyled } from "../Offer/components/OfferTitleCard/view";
 import Icon from "../../UIElements/Icon";
 import { CookiesManagerContext } from "../../../contextProviders/cookiesManager";
-import {useRouter} from "next/router";
+import { useDispatch } from 'react-redux'
+import { setOfferValue } from '../../../actions/setOfferValue'
+import { useRouter } from 'next/router'
 
 const OfferCardSmall = ({ offer, handleClick }) => {
   const cookies = React.useContext(CookiesManagerContext);
   const userToken = cookies.cookiesManager.getToken("x-auth-token");
-  const router = useRouter();
 
+  const dispatch = useDispatch()
+
+  const router = useRouter()
 
   const handleDelete = () => {
     console.log("delete");
@@ -36,6 +40,11 @@ const OfferCardSmall = ({ offer, handleClick }) => {
     });
   };
 
+  const handleEdit = () => {
+    dispatch(setOfferValue(offer))
+    router.push('/offer/edit')
+  }
+
   return (
     <OfferCardWrapper >
       <OfferCardStyled>
@@ -44,7 +53,7 @@ const OfferCardSmall = ({ offer, handleClick }) => {
           <TrashBucket onClick={handleDelete}>
             <Icon icon={"trash"} />
           </TrashBucket>
-          <OfferEdit >
+          <OfferEdit onClick={handleEdit}>
             <Icon icon={"pencil"} iconColor={colors.white} iconSize={20} />
           </OfferEdit>
         </OfferCardImageWrapper>

@@ -4,7 +4,7 @@ import IconButton from '../../Buttons/IconButton'
 
 const RadioSection = props => {
 
-  const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState(props.selected && null)
 
   return (
     <RadioSectionWrapper marginTop={props.marginTop}>

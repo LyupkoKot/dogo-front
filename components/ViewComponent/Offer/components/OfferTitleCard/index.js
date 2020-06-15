@@ -1,18 +1,23 @@
-import React from "react";
+import React from "react"
 import {
-    OfferDateStyled,
-    OfferLocationStyled,
-    OfferPlaceDateStyled, OfferTitleCardInfo,
-    OfferTitleCardStyled,
-    OfferTitleStyled,
-    SexIconStyled
-} from "./view";
-import Icon from "../../../../UIElements/Icon/index";
-import { colors, fonts } from "../../../../../themes";
-import TextIcon from "../../../../UIElements/TextIcon";
-import { OfferCardInfoTop } from "../../../OfferCardSmall/view";
+  OfferDateStyled, OfferEditButton,
+  OfferLocationStyled,
+  OfferPlaceDateStyled, OfferTitleCardInfo,
+  OfferTitleCardStyled,
+  OfferTitleStyled,
+  SexIconStyled
+} from './view'
+import Icon from "../../../../UIElements/Icon/index"
+import { colors, fonts } from "../../../../../themes"
+import TextIcon from "../../../../UIElements/TextIcon"
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import EditButton from "../../../../UIElements/Buttons/TextButton"
 
 const OfferTitleCard = ({ offer }) => {
+
+  const router = useRouter()
+
   return (
     <OfferTitleCardStyled>
       <OfferTitleStyled>
@@ -20,6 +25,11 @@ const OfferTitleCard = ({ offer }) => {
         <SexIconStyled>
           <Icon icon={offer.animal_type} iconSize={18} />
         </SexIconStyled>
+        <OfferEditButton>
+          <Link href={`/offer/edit`}>
+            <EditButton label={"Edytuj"} icon={"pencil"}/>
+          </Link>
+        </OfferEditButton>
       </OfferTitleStyled>
 
       <OfferTitleCardInfo>
