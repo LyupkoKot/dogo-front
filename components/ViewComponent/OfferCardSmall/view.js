@@ -15,7 +15,10 @@ const OfferCardStyled = styled("div")`
 const OfferCardImage = styled("div")`
   width: 255px;
   height: 135px;
-  background-image: url(../../../static/images/kot.jpg);
+  background-image: ${({ offer }) =>
+    offer.animal_type === "Kot"
+        ? `url(../../../../../static/images/cat.jpg)`
+        : `url(../../../../../static/images/dog.jpg)`};
   background-repeat: no-repeat;
   background-position: center;
   background-clip: border-box;

@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {OfferImageStyled} from "./view";
 
-const OfferImage = () => {
+const OfferImage = ({offer}) => {
+    const [animal_type, setAnimalType] = useState();
+/*
+    offer.animal_type === "Kot" ? setAnimalType("catbig.jpg") : setAnimalType("dogbig.jpg");
+*/
+
+
     return (
 
-            <OfferImageStyled/>
+            <OfferImageStyled offer={offer} animal_type={animal_type}/>
 
     );
 };

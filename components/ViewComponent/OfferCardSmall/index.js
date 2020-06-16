@@ -49,7 +49,7 @@ const OfferCardSmall = ({ offer, handleClick }) => {
     <OfferCardWrapper >
       <OfferCardStyled>
         <OfferCardImageWrapper>
-          <OfferCardImage onClick={() => handleClick(offer)}/>
+          <OfferCardImage onClick={() => handleClick(offer)} offer={offer}/>
           <TrashBucket onClick={handleDelete}>
             <Icon icon={"trash"} />
           </TrashBucket>

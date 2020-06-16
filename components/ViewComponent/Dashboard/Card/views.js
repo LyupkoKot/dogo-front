@@ -14,7 +14,10 @@ const CardStyled = styled("div")`
 const CardImageStyled = styled("div")`
   width: 200px;
   height: 100%;
-  background-image: url(../../../../static/images/cat1.jpg);
+  background-image: ${({ offer }) =>
+    offer.animal_type === "Kot"
+        ? `url(../../../../../static/images/cat.jpg)`
+        : `url(../../../../../static/images/dog.jpg)`};
 `
 
 const CardDescriptionStyled = styled('div')`

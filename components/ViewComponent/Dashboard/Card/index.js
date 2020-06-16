@@ -76,7 +76,7 @@ const Card = ({ offer, setOffer }) => {
 
   return (
     <CardStyled>
-      <CardImageStyled />
+      <CardImageStyled offer={offer} />
       <CardDescriptionStyled>
         <div
           style={{
