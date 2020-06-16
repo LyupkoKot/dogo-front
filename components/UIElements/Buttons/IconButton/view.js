@@ -15,9 +15,14 @@ const IconButtonStyled = styled.button`
   overflow: hidden;
 `
 
-const IconButtonImage = styled.img`
+const IconButtonImage = styled.div`
   height: 20px;
   width: 20px;
+  background-image: ${props => props.photo ? `url(${props.photo})` : null};
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: transparent;
 `
 
 const IconButtonText = styled.div`

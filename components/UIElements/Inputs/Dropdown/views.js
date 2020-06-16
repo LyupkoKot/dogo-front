@@ -37,12 +37,12 @@ const DropdownArrow = styled.div`
 
 const DropdownCross = styled.div`
   position: absolute;
-  height: 20px;
-  width: 20px;
+  height: 10px;
+  width: 10px;
   right: 10px;
-  top: 10px;
-  background-image: url(../../../../static/icons/close.svg);
-  background-size: 20px 20px;
+  top: 15px;
+  background-image: url(../../../../static/images/close.png);
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 `

@@ -4,7 +4,7 @@ import { IconButtonStyled, IconButtonImage, IconButtonText } from './view'
 const IconButton = ({isActive, photo, ...rest}) => {
   return (
     <IconButtonStyled isActive={isActive} {...rest}>
-      <IconButtonImage src={photo}/>
+      <IconButtonImage photo={photo} />
       <IconButtonText>
         {rest.children}
       </IconButtonText>

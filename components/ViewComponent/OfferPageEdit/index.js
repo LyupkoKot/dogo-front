@@ -116,7 +116,7 @@ const OfferPageEdit = () => {
           data={data}
           setKey={'type'}
           items={['Kot', 'Pies']}
-          photos={['', '']}
+          photos={['../../../../static/icons/pussy.svg', '../../../../static/icons/dog.svg']}
         />
         <RadioSection
           selected={data.sex}
@@ -125,7 +125,7 @@ const OfferPageEdit = () => {
           data={data}
           setKey={'sex'}
           items={['Samica', 'Samiec']}
-          photos={['', '']}
+          photos={['../../../../static/icons/female.svg', '../../../../static/icons/male.svg']}
         />
         <Dropdown
           isActive={active.sizeActive}

@@ -34,11 +34,12 @@ const Dashboard = ({ setOffer }) => {
     ? data
     : data.filter(item => item.title.toLowerCase().includes(search) && item.is_active === true)
 
-  console.log(filterData, 'filter')
-  console.log(data, 'data')
-
   function setFilter() {
+
+    console.log('i am in')
+
     const url = 'http://77.55.221.84:3102/zpi/api/advertisement?'
+
     const searchObject = {
       type: filterData.type !== '' ? `AnimalType=${filterData.type === 'Koty' ? 'Kot' : 'Pies'}` : '',
       sex: filterData.sex !== '' ? `Sex=${filterData.sex}` : '',
@@ -47,13 +48,16 @@ const Dashboard = ({ setOffer }) => {
       size: filterData.size !== '' ? `Size=${replacePolish(filterData.size)}` : '',
       health: filterData.health !== '' ? `HealthStatus=${filterData.health}` : ''
     }
+
     const finalUrl = url + Object.values(searchObject).filter(item => item !== '').join('&')
 
     console.log(finalUrl, 'url')
 
-    if (filterData.type !== '' || filterData.sex !== '' || filterData.city !== ''
-    || filterData.age !== '' || filterData.size !== '' || filterData.health !== '')
-    fetch(finalUrl, {headers: {'x-auth-token': userToken}})
+    const isReady = Object.values(searchObject).some(e => e !== '')
+
+    console.log(isReady, 1488)
+
+    isReady && fetch(finalUrl, {headers: {'x-auth-token': userToken}})
       .then(result => {
         console.log(result, 'res');
         return result.json();
@@ -89,7 +93,7 @@ const Dashboard = ({ setOffer }) => {
               setKey={'type'}
               onChange={setFilterData}
               onPress={setFilter}
-              photos={['', '']}
+              photos={['../../../../static/icons/pussy.svg', '../../../../static/icons/dog.svg']}
             />
             <RadioSection
               items={['Samica', 'Samiec']}
@@ -98,7 +102,7 @@ const Dashboard = ({ setOffer }) => {
               setKey={'sex'}
               onChange={setFilterData}
               onPress={setFilter}
-              photos={['', '']}
+              photos={['../../../../static/icons/female.svg', '../../../../static/icons/male.svg']}
             />
             <Dropdown
               width={'280px'}
