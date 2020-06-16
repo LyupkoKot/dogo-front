@@ -11,6 +11,7 @@ export const NavItemIconStyled = styled.div`
 `
 
 export const NavItemIconImage = styled.div`
+  flex: 1;
   height: 38px;
   width: 38px;
   background-color: black;
@@ -20,6 +21,7 @@ export const NavItemIconImage = styled.div`
 `
 
 export const NavItemIconText = styled.div`
+  flex: 2;
   font-size: 14px;
   font-family: ${fonts.normal};
 `

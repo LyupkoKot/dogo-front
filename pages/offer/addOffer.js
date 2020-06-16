@@ -142,7 +142,7 @@ const AddOffer = () => {
             data={data}
             setKey={'type'}
             items={['Kot', 'Pies']}
-            photos={['', '']}
+            photos={['../../../../static/icons/pussy.svg', '../../../../static/icons/dog.svg']}
             onPress={()=>{}}
           />
           <RadioSection
@@ -150,7 +150,7 @@ const AddOffer = () => {
             data={data}
             setKey={'sex'}
             items={['Samica', 'Samiec']}
-            photos={['', '']}
+            photos={['../../../../static/icons/female.svg', '../../../../static/icons/male.svg']}
             onPress={()=>{}}
           />
           <Dropdown
