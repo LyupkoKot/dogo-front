@@ -13,10 +13,15 @@ import TextIcon from "../../../../UIElements/TextIcon"
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import EditButton from "../../../../UIElements/Buttons/TextButton"
+import { CookiesManagerContext } from '../../../../../contextProviders/cookiesManager'
+import { parseJwt } from '../../../../../utils/functions'
 
 const OfferTitleCard = ({ offer }) => {
 
   const router = useRouter()
+
+  const cookies = React.useContext(CookiesManagerContext)
+  const userToken = cookies.cookiesManager.getToken('x-auth-token')
 
   return (
     <OfferTitleCardStyled>
@@ -26,9 +31,10 @@ const OfferTitleCard = ({ offer }) => {
           <Icon icon={offer.animal_type} iconSize={18} />
         </SexIconStyled>
         <OfferEditButton>
+          {offer.publisher_id === parseJwt(userToken)['_id'] && userToken &&
           <Link href={`/offer/edit`}>
             <EditButton label={"Edytuj"} icon={"pencil"}/>
-          </Link>
+          </Link>}
         </OfferEditButton>
       </OfferTitleStyled>
 
