@@ -46,7 +46,7 @@ const UserPage = ({ setOffer }) => {
 
   return (
     <OfferWrapper>
-      {user !== null && (
+      {user && (
         <OfferStyled>
           <TopSection
             image={<UserImage user={user} />}

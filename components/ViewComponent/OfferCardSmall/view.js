@@ -55,6 +55,7 @@ const TrashBucket = styled("div")`
   right: 6.33%;
   top: 4.76%;
   bottom: 3.3%;
+
   &:hover {
     cursor: pointer;
   }

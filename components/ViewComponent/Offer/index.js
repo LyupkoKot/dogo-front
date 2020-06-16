@@ -34,7 +34,7 @@ const Offer = ({ offer }) => {
 
   return (
     <OfferWrapper>
-      {offer&&<OfferStyled>
+      {offer&&(<OfferStyled>
 
         <TopSection
           image={<OfferImage offer={offer}/>}
@@ -49,7 +49,7 @@ const Offer = ({ offer }) => {
           content={<OfferHealth offer={offer} />}
         />
         <Description title={"Właściciel"} content={<OfferOwner user={user}/>} />
-      </OfferStyled>}
+      </OfferStyled>)}
     </OfferWrapper>
   );
 };

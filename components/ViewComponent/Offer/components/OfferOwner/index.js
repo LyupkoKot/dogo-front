@@ -19,7 +19,7 @@ const OfferOwner = ({user}) => {
     <OwnerWrapper>
       <OwnerTopSection>
         <OwnerImage>
-          <img src={"../static/images/kot.jpg"} />
+          <img src={"../static/images/user_icon.jpg"} />
         </OwnerImage>
         {user&&
         <OwnerName>{user.name}</OwnerName>}
