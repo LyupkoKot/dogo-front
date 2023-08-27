@@ -24,8 +24,7 @@ const Card = ({ offer, setOffer }) => {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    const apiUrl = `http://77.55.221.84:3102/zpi/api/bookmarks`;
-    fetch("http://77.55.221.84:3102/zpi/api/bookmarks", {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookmarks`, {
       method: "GET",
       headers: {
         "x-auth-token": userToken
@@ -46,7 +45,7 @@ const Card = ({ offer, setOffer }) => {
     isActive ? setIsActive(false) : setIsActive(true);
 
     !isActive &&
-      fetch(`http://77.55.221.84:3102/zpi/api/bookmarks`, {
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookmarks`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,7 +57,7 @@ const Card = ({ offer, setOffer }) => {
         })
       });
     isActive &&
-      fetch(`http://77.55.221.84:3102/zpi/api/bookmarks/${offer.id}`, {
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookmarks/${offer.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

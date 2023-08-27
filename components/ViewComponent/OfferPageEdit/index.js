@@ -49,14 +49,14 @@ const OfferPageEdit = () => {
   })
 
   useEffect(() => {
-    fetch(`http://77.55.221.84:3102/zpi/api/cities`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/cities`)
     .then(result => result.json())
     .then(result => setCities(result))
     .catch(err => console.log(err))
   }, [])
 
   const handleCreate = () => {
-    fetch(`http://77.55.221.84:3102/zpi/api/advertisement/${offer.id}`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/advertisement/${offer.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

@@ -29,7 +29,7 @@ const OfferCardSmall = ({ offer, handleClick }) => {
   const router = useRouter()
 
   const handleDelete = () => {
-    fetch(`http://77.55.221.84:3102/zpi/api/advertisement/${offer.id}`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/advertisement/${offer.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

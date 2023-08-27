@@ -15,8 +15,7 @@ const Favorites = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const apiUrl = `http://77.55.221.84:3102/zpi/api/bookmarks`;
-    fetch("http://77.55.221.84:3102/zpi/api/bookmarks", {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookmarks`, {
       method: "GET",
       headers: {
         "x-auth-token": userToken

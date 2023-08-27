@@ -29,7 +29,7 @@ const LoginSection = () => {
   const router = useRouter();
 
   const handleLogin = () => {
-    fetch(`http://77.55.221.84:3102/zpi/api/login`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
