@@ -48,8 +48,6 @@ const OfferPageEdit = () => {
     behaviourDescription: offer.behavioral_disorders_description
   })
 
-  console.log(data)
-
   useEffect(() => {
     fetch(`http://77.55.221.84:3102/zpi/api/cities`)
     .then(result => result.json())

@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 const OfferPage = () => {
   const offer = useSelector(state => state.offer);
-  console.log(offer);
   return (
     <MainLayout>
       <GlobalStyle />

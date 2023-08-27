@@ -33,7 +33,6 @@ const Registration = () => {
       }
       )
     .then(result => {
-      // console.log(result.body.getReader().closed.then(result => console.log(result)))
       result.ok && router.push('/login')
       document.cookie = `token=${result.headers.get('x-auth-token')}`
     })

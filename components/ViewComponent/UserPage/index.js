@@ -20,7 +20,6 @@ const UserPage = ({ setOffer }) => {
   const userId = cookies.cookiesManager.getToken("x-auth-token");
   const [offers, setOffers] = useState([]);
   useEffect(() => {
-    // Insert API url below
     const apiUrl = `http://77.55.221.84:3102/zpi/api/advertisement`;
     fetch(apiUrl)
       .then(res => res.json())
@@ -33,11 +32,9 @@ const UserPage = ({ setOffer }) => {
       .catch(error => console.log(error));
   }, []);
   const handleCLick = offer => {
-    console.log("ja tuj")
     setOffer(offer);
     router.push("/offer/[id]", `/offer/${offer.id}`);
   };
-  console.log(offers, 123);
 
   const handleLogout = () => {
     cookies.cookiesManager.removeToken()

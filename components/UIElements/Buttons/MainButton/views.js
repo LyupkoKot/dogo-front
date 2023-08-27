@@ -7,7 +7,6 @@ const Button = styled("button")`
   height: 44px;
   padding: 4px 13px;
   margin: ${props => props.margin ? props.margin : '0'};
-  // background-color: ${({ bgColor }) => (bgColor ? bgColor : "")};
   background: ${colors.orange};
   color: ${({ color }) => (color ? color : colors.black)};
   font-family: ${fonts.bold};

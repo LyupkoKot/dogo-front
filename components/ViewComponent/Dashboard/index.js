@@ -36,7 +36,6 @@ const Dashboard = ({ setOffer }) => {
 
   function setFilter() {
 
-    console.log('i am in')
 
     const url = 'http://77.55.221.84:3102/zpi/api/advertisement?'
 
@@ -51,15 +50,12 @@ const Dashboard = ({ setOffer }) => {
 
     const finalUrl = url + Object.values(searchObject).filter(item => item !== '').join('&')
 
-    console.log(finalUrl, 'url')
 
     const isReady = Object.values(searchObject).some(e => e !== '')
 
-    console.log(isReady, 1488)
 
     isReady && fetch(finalUrl, {headers: {'x-auth-token': userToken}})
       .then(result => {
-        console.log(result, 'res');
         return result.json();
       })
       .then(result => setData(result))

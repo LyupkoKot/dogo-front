@@ -18,7 +18,6 @@ import { UserContext } from "../../../../contextProviders/UserContextProvider";
 
 const LoginSection = () => {
   const cookies = React.useContext(CookiesManagerContext);
-  // console.log(cookiesManager.cookiesManager)
 
   const dispatch = useDispatch();
   const setUser = useCallback(val => dispatch(setUserId(val)), [dispatch]);
@@ -42,7 +41,6 @@ const LoginSection = () => {
       })
     })
       .then(result => {
-        console.log(result);
         if (result.ok) {
           cookies.cookiesManager.setToken(result.headers.get("x-auth-token"));
           localStorage.setItem("token", result.headers.get("x-auth-token"));

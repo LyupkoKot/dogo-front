@@ -24,7 +24,6 @@ const Card = ({ offer, setOffer }) => {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    // Insert API url below
     const apiUrl = `http://77.55.221.84:3102/zpi/api/bookmarks`;
     fetch("http://77.55.221.84:3102/zpi/api/bookmarks", {
       method: "GET",
@@ -37,7 +36,6 @@ const Card = ({ offer, setOffer }) => {
         response.some(e => e.id === offer.id)
           ? setIsActive(true)
           : setIsActive(false);
-        console.log(response.some(e => e.id === offer.id));
       })
       .catch(error => console.log(error));
   }, []);

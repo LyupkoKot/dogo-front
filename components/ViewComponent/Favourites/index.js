@@ -3,7 +3,6 @@ import {DashboardLabelStyled, DashboardWrapper} from "../Dashboard/views";
 import Card from "../Dashboard/Card";
 
 const Favourites = ({ data, setOffer }) => {
-  console.log(data, "log");
   return (
     <DashboardWrapper>
       <DashboardLabelStyled>Ulubione</DashboardLabelStyled>

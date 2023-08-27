@@ -29,7 +29,6 @@ const OfferCardSmall = ({ offer, handleClick }) => {
   const router = useRouter()
 
   const handleDelete = () => {
-    console.log("delete");
     fetch(`http://77.55.221.84:3102/zpi/api/advertisement/${offer.id}`, {
       method: "DELETE",
       headers: {
