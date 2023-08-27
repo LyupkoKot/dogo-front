@@ -7,8 +7,6 @@ const NavItemIcon = ({to, as}) => {
 
   const id = useSelector(state => state.userId)
 
-  console.log(id, 'b')
-
   return (
     <Link href={to} as={as}>
       <NavItemIconStyled>

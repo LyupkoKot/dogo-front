@@ -1,5 +1,4 @@
 import * as React from "react";
-// icon
 import {
   Location,
   Social,

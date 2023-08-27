@@ -55,28 +55,7 @@ const AddOffer = () => {
     behaviour: ''
   })
 
-  console.log(userId, 1488)
-
   const handleCreate = () => {
-
-    console.log({
-      title: data.name,
-        animal_type: data.type,
-        sex: data.sex,
-        size: data.size,
-        age: data.age,
-        color: data.color,
-        breed: data.breed,
-        cost_of_living: data.cost,
-        description: data.description,
-        vaccines: data.vaccines,
-        allergies: data.allergy,
-        health_status: active.healthActive ? 'Zdrowy' : 'Chory',
-        illness_description: data.healthDescription,
-        behavioral_disorders: active.behaviourActive,
-        behavioral_disorders_description: data.behaviourDescription,
-        city: data.city,
-    }, 14888841)
 
     fetch('http://77.55.221.84:3102/zpi/api/advertisement', {
       method: 'POST',
@@ -106,7 +85,6 @@ const AddOffer = () => {
     })
     .then(result => {
       if (result.ok) {
-        console.log(result)
         document.cookie = `token=${result.headers.get('x-auth-token')}`
         router.push('/')
       }
@@ -114,7 +92,6 @@ const AddOffer = () => {
     .catch(err => console.log(err))
   }
 
-  console.log(data.sex)
 
   return (
     <MainLayout>

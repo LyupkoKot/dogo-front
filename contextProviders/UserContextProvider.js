@@ -16,7 +16,6 @@ const UserContextProvider = ({children}) => {
     const userData = useSelector(state => state.user)
 
     useEffect(() => {
-        // Insert API url below
         const apiUrl = `http://77.55.221.84:3102/zpi/api/user/me`
         fetch(apiUrl, {
             method: 'GET',
