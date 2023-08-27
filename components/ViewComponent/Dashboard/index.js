@@ -8,7 +8,6 @@ import { CookiesManagerContext } from '../../../contextProviders/cookiesManager'
 import { replacePolish } from '../../../utils/functions'
 
 const Dashboard = ({ setOffer }) => {
-
   const cookies = React.useContext(CookiesManagerContext)
   const userToken = cookies.cookiesManager.getToken('x-auth-token')
 
@@ -37,7 +36,7 @@ const Dashboard = ({ setOffer }) => {
   function setFilter() {
 
 
-    const url = 'http://77.55.221.84:3102/zpi/api/advertisement?'
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/advertisement?`
 
     const searchObject = {
       type: filterData.type !== '' ? `AnimalType=${filterData.type === 'Koty' ? 'Kot' : 'Pies'}` : '',
@@ -63,12 +62,12 @@ const Dashboard = ({ setOffer }) => {
   }
 
   useEffect(() => {
-    fetch(`http://77.55.221.84:3102/zpi/api/cities`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/cities`)
     .then(result => result.json())
     .then(result => setCities(result))
     .catch(error => console.log(error))
 
-    fetch(`http://77.55.221.84:3102/zpi/api/advertisement`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/advertisement`)
     .then(res => res.json())
     .then(response => setData(response))
     .catch(error => console.log(error))

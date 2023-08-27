@@ -24,7 +24,7 @@ const Registration = () => {
       email: email,
       password: password
     }
-    fetch('http://77.55.221.84:3102/zpi/api/registration', {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/registration`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

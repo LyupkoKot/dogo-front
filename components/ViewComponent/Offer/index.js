@@ -14,7 +14,7 @@ const Offer = ({ offer }) => {
   const userId = cookies.cookiesManager.getToken("x-auth-token");
   const [user, setUser] = useState(null);
   useEffect(() => {
-    const apiUrl = `http://77.55.221.84:3102/zpi/api/user/${offer.publisher_id}`;
+    const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/user/${offer.publisher_id}`;
     fetch(apiUrl, {
       method: "GET",
       headers: {

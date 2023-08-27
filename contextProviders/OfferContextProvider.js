@@ -5,7 +5,7 @@ const OfferContext = createContext({});
 const OfferContextProvider = ({children}) => {
   const [offers, setOffers] = useState([]);
   useEffect(() => {
-    const apiUrl = `http://77.55.221.84:3102/zpi/api/advertisement`;
+    const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/advertisement`;
     fetch(apiUrl)
         .then(res => res.json())
         .then(response => {

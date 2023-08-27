@@ -22,7 +22,7 @@ const AddOffer = () => {
   const [cities, setCities] = useState([])
 
   useEffect(() => {
-    fetch(`http://77.55.221.84:3102/zpi/api/cities`
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/cities`
     )
     .then(result => result.json())
     .then(result => setCities(result))
@@ -57,7 +57,7 @@ const AddOffer = () => {
 
   const handleCreate = () => {
 
-    fetch('http://77.55.221.84:3102/zpi/api/advertisement', {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/advertisement`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

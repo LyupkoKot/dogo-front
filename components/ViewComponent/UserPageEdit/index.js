@@ -18,7 +18,7 @@ const UserPageEdit = () => {
   const [user, setUser] = useState(userShit);
   const handleCreate = () => {
 
-    fetch(`http://77.55.221.84:3102/zpi/api/user/${userData.id}`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/${userData.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
