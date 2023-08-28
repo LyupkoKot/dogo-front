@@ -10,9 +10,6 @@ A pet adoption platform built using React and Next.js, designed to connect indiv
 - [Screenshots](#screenshots)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Features](#features)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Description
 
